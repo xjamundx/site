@@ -42,6 +42,10 @@ section.editor div.controls {
   border-bottom: solid 1px #ccc;
 }
 
+section.editor div.controls span {
+  margin-right: 5px;
+}
+
 section.editor div.controls button {
   border: solid 1px #ccc;
   background: -webkit-gradient(linear, left top, left bottom, from(#fff), to(#e6e6e6));
