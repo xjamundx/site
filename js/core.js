@@ -25,6 +25,11 @@ $(document).ready(function () {
         output.html(template.tmpl());
     }
 
+    var editor = ace.edit('editor');
+    var JavaScriptMode = require("ace/mode/javascript").Mode;
+    editor.getSession().setMode(new JavaScriptMode());
+    window.editor = editor;
+
     $("div.code button").click(function () {
         var options = {},
             code    = $("div.code textarea").val(),
