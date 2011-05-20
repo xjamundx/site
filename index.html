@@ -31,60 +31,262 @@
   </head>
 
   <body>
-    <header class="clearfix">
-      <h1>JSHint</h1>
+    <header>
+      <div class="wrapper">
+        <h1>JSHint<span> A JavaScript Code Quality Tool</span></h1>
 
-      <!--
-      <nav>
         <ul>
           <li><a href="jshint.js">Download</a></li>
-          <li><a href="#docs">Learn</a></li>
           <li><a href="http://github.com/jshint/jshint/">Contribute</a></li>
         </ul>
-      </nav>
-      -->
+      </div>
     </header>
 
-    <section class="editor">
-      <div class="controls">
-        <span>Enter your code below and press</span>
-        <button>JSHint</button>
+    <div class="container">
+      <div class="sidebar">
+        <div class="wrapper">
+          <h2>Documentation</h2>
+
+          <ul>
+            <li><a href="#">Configuration Docs</a></li>
+            <li><a href="#">Mozilla Developer Network</a></li>
+            <li><a href="#">Books on JavaScript</a></li>
+            <li><a href="#">JavaScript Documentation Archive</a></li>
+          </ul>
+
+          <h2>Enforcing Options</h2>
+
+          <div class="options" data-type="enforcers">
+            <ul>
+              <li>
+                <input type="checkbox" id="bitwise">
+                <label for="strict">Prohibit bitwise operators</label>
+              </li>
+
+              <li>
+                <input type="checkbox" id="eqeqeq">
+                <label for="eqeqeq">Require ===</label>
+              </li>
+
+              <li>
+                <input type="checkbox" id="curly">
+                <label for="curly">Require curly braces no matter what</label>
+              </li>
+
+              <li>
+                <input type="checkbox" id="forin">
+                <label for="forin">Require hasOwnProperty filter for all for..in loops</label>
+              </li>
+
+              <li>
+                <input type="checkbox" id="immed">
+                <label for="immed">Require immediate invocations to be wrapped in parens</label>
+              </li>
+
+              <li>
+                <input type="checkbox" id="newcap">
+                <label for="newcap">Require constructor function names to be capitalized</label>
+              </li>
+
+              <li>
+                <input type="checkbox" id="noarg">
+                <label for="noarg">
+                  If arguments.caller and arguments.callee should be disallowed
+                </label>
+              </li>
+
+              <li>
+                <input type="checkbox" id="noempty">
+                <label for="noempty">Prohibit the use of empty blocks</label>
+              </li>
+
+              <li>
+                <input type="checkbox" id="nonew">
+                <label for="nonew">Prohibit the use of 'new' for side effects</label>
+              </li>
+
+              <li>
+                <input type="checkbox" id="nomen">
+                <label for="nomen">Check names (WTF?)</label>
+              </li>
+
+              <li>
+                <input type="checkbox" id="onevar">
+                <label for="onevar">Prohibit more than one var statement per function</label>
+              </li>
+
+              <li>
+                <input type="checkbox" id="plusplus">
+                <label for="plusplus">Prohibit increment and decrement operators</label>
+              </li>
+
+              <li>
+                <input type="checkbox" id="regexp">
+                <label for="regexp">Disallow . (dot) in regexp literals</label>
+              </li>
+
+              <li>
+                <input type="checkbox" id="undef">
+                <label for="undef">Disallow the use of undefined variables</label>
+              </li>
+
+              <li>
+                <input type="checkbox" id="strict">
+                <label for="strict">Require strict mode</label>
+              </li>
+
+              <li>
+                <input type="checkbox" id="white">
+                <label for="white">Apply strict whitespace rules</label>
+              </li>
+            </ul>
+          </div>
+
+          <h2>Relaxing Options</h2>
+
+          <div class="options" data-type="relaxers">
+            <ul>
+              <li>
+                <input type="checkbox" id="asi">
+                <label for="asi">Don't require semicolons</label>
+              </li>
+
+              <li>
+                <input type="checkbox" id="boss">
+                <label for="boss">Allow the boss use of assignments</label>
+              </li>
+
+              <li>
+                <input type="checkbox" id="debug">
+                <label for="debug">Allow debugger statements</label>
+              </li>
+
+              <li>
+                <input type="checkbox" id="evil">
+                <label for="evil">Tolerate eval statements</label>
+              </li>
+
+              <li>
+                <input type="checkbox" id="eqnull">
+                <label for="eqnull">Allow the use of == null</label>
+              </li>
+
+              <li>
+                <input type="checkbox" id="expr">
+                <label for="expr">Allow ExpressionStatement</label>
+              </li>
+
+              <li>
+                <input type="checkbox" id="globalstrict">
+                <label for="globalstrict">Allow global "use strict" statement</label>
+              </li>
+
+              <li>
+                <input type="checkbox" id="latedef">
+                <label for="latedef">Allow implicit variable hoisting</label>
+              </li>
+
+              <li>
+                <input type="checkbox" id="laxbreak">
+                <label for="laxbreak">Do not check line breaks</label>
+              </li>
+
+              <li>
+                <input type="checkbox" id="loopfunc">
+                <label for="loopfunc">Allow functions to be defined within loops</label>
+              </li>
+
+              <li>
+                <input type="checkbox" id="shadow">
+                <label for="shadow">Allow variable shadowing</label>
+              </li>
+
+              <li>
+                <input type="checkbox" id="sub">
+                <label for="sub">Allow all forms of subscript notation</label>
+              </li>
+
+              <li>
+                <input type="checkbox" id="supernew">
+                <label for="supernew">Allow special use of 'new'</label>
+              </li>
+            </ul>
+          </div>
+
+          <h2>Environments</h2>
+
+          <div class="options" data-type="environments">
+            <ul>
+              <li>
+                <input type="checkbox" id="browser">
+                <label for="browser">Browser</label>
+              </li>
+
+              <li>
+                <input type="checkbox" id="couch">
+                <label for="couch">CouchDB</label>
+              </li>
+
+              <li>
+                <input type="checkbox" id="devel">
+                <label for="devel">Development</label>
+              </li>
+
+              <li>
+                <input type="checkbox" id="es5">
+                <label for="es5">ES5</label>
+              </li>
+
+              <li>
+                <input type="checkbox" id="jquery">
+                <label for="jquery">jQuery</label>
+              </li>
+
+              <li>
+                <input type="checkbox" id="mootools">
+                <label for="mootools">MooTools</label>
+              </li>
+
+              <li>
+                <input type="checkbox" id="node">
+                <label for="node">Node.js</label>
+              </li>
+
+              <li>
+                <input type="checkbox" id="prototypejs">
+                <label for="prototypejs">Prototype.js</label>
+              </li>
+
+              <li>
+                <input type="checkbox" id="rhino">
+                <label for="rhino">Rhino</label>
+              </li>
+            </ul>
+          </div>
+
+          <h2>Other Options</h2>
+
+          <div class="options" data-type="other">
+            <ul>
+              <li>
+                <input type="checkbox" id="passfail">
+                <label for="passfail">Stop parsing on first error</label>
+              </li>
+            </ul>
+          </div>
+        </div>
       </div>
 
-      <div id="sidebar">
-          Options, etc.
+      <div class="editor">
+        <div class="controls">
+          <span>Paste your code below and hit</span>
+          <button>JSHint</button>
+        </div>
+        <div id="editor"></div>
       </div>
 
-      <div id="editor">function onPass() {
-    var output   = $("div.output.wrapper"),
-        template = $("#passOutput");
-
-    output.removeClass("fail");
-    output.addClass("pass");
-    output.html(template.tmpl(JSHINT.data()));
-}
-
-function onFail() {
-    var output   = $("div.output.wrapper"),
-        template = $("#failOutput");
-
-    output.removeClass("pass");
-    output.addClass("fail");
-
-    output.html(template.tmpl(JSHINT.data()));
-}
-
-function onEmpty() {
-    var output   = $("div.output.wrapper"),
-        template = $("#emptyOutput");
-
-    output.html(template.tmpl());
-}
-
-var editor = ace.edit('editor');
-var JavaScriptMode = require("ace/mode/javascript").Mode;
-editor.getSession().setMode(new JavaScriptMode());</div>
-    </section>
+      <div style="clear:both;"></div>
+    </div>
 
     <footer>
       JSHint, by the JSHint Community.
