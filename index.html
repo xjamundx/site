@@ -36,8 +36,17 @@
         <h1>JSHint<span> A JavaScript Code Quality Tool</span></h1>
 
         <ul>
-          <li><a href="jshint.js">Download</a></li>
-          <li><a href="http://github.com/jshint/jshint/">Contribute</a></li>
+          <li>
+            <a href="jshint.js">Download</a>
+          </li>
+
+          <li>
+            <a href="http://github.com/jshint/jshint/">Contribute</a>
+          </li>
+
+          <li>
+            <a href="#">Share</a>
+          </li>
         </ul>
       </div>
     </header>
@@ -279,9 +288,22 @@
 
       <div class="editor">
         <div class="controls">
+          <span class="result">
+            <button disabled>Report</button>
+            <button disabled>Errors</button>
+          </span>
+
           <span>Paste your code below and hit</span>
           <button>JSHint</button>
         </div>
+
+        <div id="report">
+          <h2>The code check passed!</h2>
+          <p>Globals</p>
+
+          <p><a href="#">Hide</a></p>
+        </div>
+
         <div id="editor"></div>
       </div>
 

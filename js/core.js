@@ -1,6 +1,8 @@
 $(document).ready(function () {
   var editor = ace.edit('editor');
   var JavaScriptMode = require("ace/mode/javascript").Mode;
+
+  JavaScriptMode.prototype.createWorker = function () {};
   editor.getSession().setMode(new JavaScriptMode());
 
   function getOptions() {
@@ -33,6 +35,8 @@ $(document).ready(function () {
     var succ = JSHINT(code, opts);
     var line = 'div#editor div.ace_layer.ace_text-layer ' +
                'div.ace_line:nth-child';
+
+    $('div#editor div.errorLine').removeClass('errorLine');
 
     if (!succ) {
       for (var i = 0, err; err = JSHINT.errors[i]; i++) {

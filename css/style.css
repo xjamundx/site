@@ -54,12 +54,16 @@ header a {
   text-decoration: none;
   border-bottom: dashed 1px #f6f6f6;
   margin-left: 10px;
-  padding-bottom: 2px;
+  padding-bottom: 1px;
 }
 
 header a:hover {
   color: #f6f6f6;
   border-bottom: solid 1px #f6f6f6;
+}
+
+header a:visited {
+  color: #f6f6f6;
 }
 
 div.container {
@@ -142,10 +146,14 @@ div.editor {
 }
 
 div.editor div.controls {
-  text-align: right;
-  height: 50px;
-  margin: 0;
   border-bottom: solid 1px #ccc;
+  margin: 0;
+  text-align: right;
+}
+
+div.editor div.controls span.result {
+  float: left;
+  margin-left: 10px;
 }
 
 div.editor div.controls button {
@@ -161,11 +169,29 @@ div.editor div.controls button:hover {
   background: -webkit-gradient(linear, left top, left bottom, from(#e6e6e6), to(#fff));
 }
 
+div.editor span.result button {
+  margin: 10px 0px;
+}
+
+div.editor span.result button[disabled]:hover {
+  background: -webkit-gradient(linear, left top, left bottom, from(#fff), to(#e6e6e6));
+}
+
+div.editor div#report {
+  position: absolute;
+  z-index: 2;
+  background-color: black;
+  color: white;
+  padding: 10px;
+  width: 804px;
+  opacity: .7;
+}
+
 div#editor {
   position: relative;
   background-color: #fff;
   width: 824px;
-  height: 949px;
+  height: 952px;
   border-bottom-right-radius: 3px;
 }
 
