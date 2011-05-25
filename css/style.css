@@ -169,6 +169,10 @@ div#editor {
   border-bottom-right-radius: 3px;
 }
 
+div#editor div.errorLine {
+  background-color: pink;
+}
+
 footer {
   margin: 20px 0;
   font-weight: normal;

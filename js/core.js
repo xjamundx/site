@@ -31,7 +31,14 @@ $(document).ready(function () {
     var code = editor.getSession().getValue();
     var opts = getOptions();
     var succ = JSHINT(code, opts);
+    var line = 'div#editor div.ace_layer.ace_text-layer ' +
+               'div.ace_line:nth-child';
 
-    alert(succ);
-  })
+    if (!succ) {
+      for (var i = 0, err; err = JSHINT.errors[i]; i++) {
+        console.log(line + '(' + err.line + ')');
+        $(line + '(' + err.line + ')').addClass('errorLine');
+      }
+    }
+  });
 });
