@@ -56,8 +56,8 @@
  JSHINT.errors is an array of objects containing these members:
 
  {
-     line      : The line (relative to 0) at which the lint was found
-     character : The character (relative to 0) at which the lint was found
+     line      : The line (relative to 1) at which the lint was found
+     character : The character (relative to 1) at which the lint was found
      reason    : The problem
      evidence  : The text line in which the problem occurred
      raw       : The raw message before the details were inserted
@@ -97,7 +97,9 @@
      functions: [
          name: STRING,
          line: NUMBER,
+         character: NUMBER,
          last: NUMBER,
+         lastcharacter: NUMBER,
          param: [
              STRING
          ],
@@ -157,8 +159,8 @@
 */
 
 /*members "\b", "\t", "\n", "\f", "\r", "!=", "!==", "\"", "%", "(begin)",
- "(breakage)", "(context)", "(error)", "(global)", "(identifier)", "(last)",
- "(line)", "(loopage)", "(name)", "(onevar)", "(params)", "(scope)",
+ "(breakage)", "(character)", "(context)", "(error)", "(global)", "(identifier)", "(last)",
+ "(lastcharacter)", "(line)", "(loopage)", "(name)", "(onevar)", "(params)", "(scope)",
  "(statement)", "(verb)", "*", "+", "++", "-", "--", "\/", "<", "<=", "==",
  "===", ">", ">=", $, $$, $A, $F, $H, $R, $break, $continue, $w, Abstract, Ajax,
  __filename, __dirname, ActiveXObject, Array, ArrayBuffer, ArrayBufferView, Audio,
@@ -182,11 +184,12 @@
  HtmlTable, HTMLTableCaptionElement, HTMLTableCellElement, HTMLTableColElement,
  HTMLTableElement, HTMLTableRowElement, HTMLTableSectionElement,
  HTMLTextAreaElement, HTMLTitleElement, HTMLUListElement, HTMLVideoElement,
- Iframe, IframeShim, Image, Int16Array, Int32Array, Int8Array,
+ Iframe, IframeShim, Image, importScripts, Int16Array, Int32Array, Int8Array,
  Insertion, InputValidator, JSON, Keyboard, Locale, LN10, LN2, LOG10E, LOG2E,
  MAX_VALUE, MIN_VALUE, Mask, Math, MenuItem, MessageChannel, MessageEvent, MessagePort,
- MoveAnimation, MooTools, Native, NEGATIVE_INFINITY, Number, Object, ObjectRange, Option,
- Options, OverText, PI, POSITIVE_INFINITY, PeriodicalExecuter, Point, Position, Prototype,
+ MoveAnimation, MooTools, MutationObserver, Native, NEGATIVE_INFINITY, Node, NodeFilter,
+ Number, Object, ObjectRange,
+ Option, Options, OverText, PI, POSITIVE_INFINITY, PeriodicalExecuter, Point, Position, Prototype,
  RangeError, Rectangle, ReferenceError, RegExp, ResizeAnimation, Request, RotateAnimation,
  SQRT1_2, SQRT2, ScrollBar, ScriptEngine, ScriptEngineBuildVersion,
  ScriptEngineMajorVersion, ScriptEngineMinorVersion, Scriptaculous, Scroller,
@@ -197,7 +200,7 @@
  XPathEvaluator, XPathException, XPathExpression, XPathNamespace, XPathNSResolver, XPathResult,
  "\\", a, addEventListener, address, alert, apply, applicationCache, arguments, arity, asi, atob,
  b, basic, basicToken, bitwise, block, blur, boolOptions, boss, browser, btoa, c, call, callee,
- caller, cases, charAt, charCodeAt, character, clearInterval, clearTimeout,
+ caller, camelcase, cases, charAt, charCodeAt, character, clearInterval, clearTimeout,
  close, closed, closure, comment, condition, confirm, console, constructor,
  content, couch, create, css, curly, d, data, datalist, dd, debug, decodeURI,
  decodeURIComponent, defaultStatus, defineClass, deserialize, devel, document,
@@ -209,22 +212,23 @@
  hasOwnProperty, help, history, i, id, identifier, immed, implieds, importPackage, include,
  indent, indexOf, init, ins, instanceOf, isAlpha, isApplicationRunning, isArray,
  isDigit, isFinite, isNaN, iterator, java, join, jshint,
- JSHINT, json, jquery, jQuery, keys, label, labelled, last, lastsemic, laxbreak, laxcomma,
- latedef, lbp, led, left, length, line, load, loadClass, localStorage, location,
+ JSHINT, json, jquery, jQuery, keys, label, labelled, last, lastcharacter, lastsemic, laxbreak,
+ laxcomma, latedef, lbp, led, left, length, line, load, loadClass, localStorage, location,
  log, loopfunc, m, match, maxerr, maxlen, member,message, meta, module, moveBy,
  moveTo, mootools, multistr, name, navigator, new, newcap, noarg, node, noempty, nomen,
  nonew, nonstandard, nud, onbeforeunload, onblur, onerror, onevar, onecase, onfocus,
  onload, onresize, onunload, open, openDatabase, openURL, opener, opera, options, outer, param,
- parent, parseFloat, parseInt, passfail, plusplus, predef, print, process, prompt,
- proto, prototype, prototypejs, provides, push, quit, range, raw, reach, reason, regexp,
+ parent, parseFloat, parseInt, passfail, plusplus, postMessage, predef, print, process, prompt,
+ proto, prototype, prototypejs, provides, push, quit, quotmark, range, raw, reach, reason, regexp,
  readFile, readUrl, regexdash, removeEventListener, replace, report, require,
  reserved, resizeBy, resizeTo, resolvePath, resumeUpdates, respond, rhino, right,
- runCommand, scroll, screen, scripturl, scrollBy, scrollTo, scrollbar, search, seal,
+ runCommand, scroll, screen, scripturl, scrollBy, scrollTo, scrollbar, search, seal, self,
  send, serialize, sessionStorage, setInterval, setTimeout, setter, setterToken, shift, slice,
  smarttabs, sort, spawn, split, stack, status, start, strict, sub, substr, supernew, shadow,
  supplant, sum, sync, test, toLowerCase, toString, toUpperCase, toint32, token, top, trailing,
  type, typeOf, Uint16Array, Uint32Array, Uint8Array, undef, undefs, unused, urls, validthis,
- value, valueOf, var, vars, version, WebSocket, withstmt, white, window, windows, Worker, wsh*/
+ value, valueOf, var, vars, version, WebSocket, withstmt, white, window, windows, Worker, worker,
+ wsh*/
 
 /*global exports: false */
 
@@ -261,6 +265,7 @@ var JSHINT = (function () {
             bitwise     : true, // if bitwise operators should not be allowed
             boss        : true, // if advanced usage of assignments should be allowed
             browser     : true, // if the standard browser globals should be predefined
+            camelcase   : true, // if identifiers should be required in camel case
             couch       : true, // if CouchDB globals should be predefined
             curly       : true, // if curly braces around all blocks should be required
             debug       : true, // if debugger statements should be allowed
@@ -325,6 +330,7 @@ var JSHINT = (function () {
                                 // This is a function scoped option only.
             withstmt    : true, // if with statements should be allowed
             white       : true, // if strict whitespace rules apply
+            worker      : true, // if Web Worker script symbols should be allowed
             wsh         : true  // if the Windows Scripting Host environment globals
                                 // should be predefined
         },
@@ -335,7 +341,8 @@ var JSHINT = (function () {
             maxlen: false,
             indent: false,
             maxerr: false,
-            predef: false
+            predef: false,
+            quotmark: false //'single'|'double'|true
         },
 
         // These are JSHint boolean options which are shared with JSLint
@@ -458,7 +465,10 @@ var JSHINT = (function () {
             MessagePort              :  false,
             moveBy                   :  false,
             moveTo                   :  false,
+            MutationObserver         :  false,
             name                     :  false,
+            Node                     :  false,
+            NodeFilter               :  false,
             navigator                :  false,
             onbeforeunload           :  true,
             onblur                   :  true,
@@ -682,6 +692,8 @@ var JSHINT = (function () {
             Scriptaculous     : false
         },
 
+        quotmark,
+
         rhino = {
             defineClass  : false,
             deserialize  : false,
@@ -768,6 +780,12 @@ var JSHINT = (function () {
         useESNextSyntax,
         warnings,
 
+        worker = {
+            importScripts       : true,
+            postMessage         : true,
+            self                : true
+        },
+
         wsh = {
             ActiveXObject             : true,
             Enumerator                : true,
@@ -816,10 +834,8 @@ var JSHINT = (function () {
     function F() {}     // Used by Object.create
 
     function is_own(object, name) {
-
-// The object.hasOwnProperty method fails when the property under consideration
-// is named 'hasOwnProperty'. So we have to use this more convoluted form.
-
+        // The object.hasOwnProperty method fails when the property under consideration
+        // is named 'hasOwnProperty'. So we have to use this more convoluted form.
         return Object.prototype.hasOwnProperty.call(object, name);
     }
 
@@ -829,7 +845,11 @@ var JSHINT = (function () {
         }
     }
 
-// Provide critical ES5 functions to ES3.
+    function isString(obj) {
+        return Object.prototype.toString.call(obj) === '[object String]';
+    }
+
+    // Provide critical ES5 functions to ES3.
 
     if (typeof Array.isArray !== 'function') {
         Array.isArray = function (o) {
@@ -856,7 +876,7 @@ var JSHINT = (function () {
         };
     }
 
-// Non standard methods
+    // Non standard methods
 
     if (typeof String.prototype.entityify !== 'function') {
         String.prototype.entityify = function () {
@@ -966,6 +986,10 @@ var JSHINT = (function () {
             combine(predefined, mootools);
         }
 
+        if (option.worker) {
+            combine(predefined, worker);
+        }
+
         if (option.wsh) {
             combine(predefined, wsh);
         }
@@ -1068,10 +1092,11 @@ var JSHINT = (function () {
 
             // If smarttabs option is used check for spaces followed by tabs only.
             // Otherwise check for any occurence of mixed tabs and spaces.
+            // Tabs and one space followed by block comment is allowed.
             if (option.smarttabs)
                 at = s.search(/ \t/);
             else
-                at = s.search(/ \t|\t /);
+                at = s.search(/ \t|\t [^\*]/);
 
             if (at >= 0)
                 warningAt("Mixed spaces and tabs.", line, at + 1);
@@ -1125,6 +1150,10 @@ var JSHINT = (function () {
                             (value !== '__dirname' && value !== '__filename')) {
                         warningAt("Unexpected {a} in '{b}'.", line, from, "dangling '_'", value);
                     }
+                } else if (option.camelcase && value.indexOf('_') > -1 &&
+                        !value.match(/^[A-Z0-9_]*$/)) {
+                    warningAt("Identifier '{a}' is not in camel case.",
+                        line, from, value);
                 }
             }
             t.value = value;
@@ -1214,6 +1243,22 @@ var JSHINT = (function () {
                     if (jsonmode && x !== '"') {
                         warningAt("Strings must use doublequote.",
                                 line, character);
+                    }
+
+                    if (option.quotmark) {
+                        if (option.quotmark === 'single' && x !== "'") {
+                            warningAt("Strings must use singlequote.",
+                                    line, character);
+                        } else if (option.quotmark === 'double' && x !== '"') {
+                            warningAt("Strings must use doublequote.",
+                                    line, character);
+                        } else if (option.quotmark === true) {
+                            quotmark = quotmark || x;
+                            if (quotmark !== x) {
+                                warningAt("Mixed double and single quotes.",
+                                        line, character);
+                            }
+                        }
                     }
 
                     function esc(n) {
@@ -3317,6 +3362,7 @@ loop:   for (;;) {
         funct = {
             '(name)'     : i || '"' + anonname + '"',
             '(line)'     : nexttoken.line,
+            '(character)': nexttoken.character,
             '(context)'  : funct,
             '(breakage)' : 0,
             '(loopage)'  : 0,
@@ -3335,6 +3381,7 @@ loop:   for (;;) {
         scope = oldScope;
         option = oldOption;
         funct['(last)'] = token.line;
+        funct['(lastcharacter)'] = token.character;
         funct = funct['(context)'];
         return f;
     }
@@ -4139,9 +4186,9 @@ loop:   for (;;) {
     }
 
 
-// The actual JSHINT function itself.
-
+    // The actual JSHINT function itself.
     var itself = function (s, o, g) {
+        /*global console */
         var a, i, k, x,
             optionKeys,
             newOptionObj = {};
@@ -4150,6 +4197,22 @@ loop:   for (;;) {
         JSHINT.undefs = [];
         predefined = Object.create(standard);
         combine(predefined, g || {});
+
+        if (!isString(s) && !Array.isArray(s)) {
+            errorAt("Input is neither a string nor an array of strings.", 0);
+            return false;
+        }
+
+        if (isString(s) && /^\s*$/g.test(s)) {
+            errorAt("Input is an empty string.", 0);
+            return false;
+        }
+
+        if (s.length === 0) {
+            errorAt("Input is an empty array.", 0);
+            return false;
+        }
+
         if (o) {
             a = o.predef;
             if (a) {
@@ -4219,6 +4282,7 @@ loop:   for (;;) {
 
         //reset values
         comma.first = true;
+        quotmark = undefined;
 
         try {
             advance();
@@ -4237,7 +4301,7 @@ loop:   for (;;) {
 
                 statements();
             }
-            advance('(end)');
+            advance((nexttoken && nexttoken.value !== '.')  ? '(end)' : undefined);
 
             var markDefined = function (name, context) {
                 do {
@@ -4368,7 +4432,9 @@ loop:   for (;;) {
             fu.name = f['(name)'];
             fu.param = f['(params)'];
             fu.line = f['(line)'];
+            fu.character = f['(character)'];
             fu.last = f['(last)'];
+            fu.lastcharacter = f['(lastcharacter)'];
             data.functions.push(fu);
         }
 
@@ -4520,8 +4586,9 @@ loop:   for (;;) {
 }());
 
 // Make JSHINT a Node module, if possible.
-if (typeof exports === 'object' && exports)
+if (typeof exports === 'object' && exports) {
     exports.JSHINT = JSHINT;
+}
 /*jshint boss: true, rhino: true */
 /*globals JSHINT*/
 

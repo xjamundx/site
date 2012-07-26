@@ -89,6 +89,14 @@
             </tr>
 
             <tr>
+              <td class="name"><code>camelcase</code></td>
+              <td>
+                <p>This option allows you to force all variable names to use either camelCase
+                style or UPPER_CASE with underscores.</p>
+              </td>
+            </tr>
+
+            <tr>
               <td class="name"><code>curly</code></td>
               <td>
                 <p>This option requires you to always put curly braces around blocks in loops
@@ -232,6 +240,15 @@ MyConstructor();     // -> [DOMWindow]
               people think that <code>++</code> and <code>--</code> reduces the quality of their
               coding styles and there are programming languages&mdash;such as Python&mdash;that
               go completely without these operators.</p></td>
+            </tr>
+
+            <tr>
+              <td class="name"><code>quotmark</code></td>
+              <td><p>THis option enforces the consistency of quotation marks used throughout your
+              code. It accepts three values: <code>true</code> if you don't want to enforce one
+              particular style but want some consistency, <code>"single"</code> if you want to
+              allow only single quotes and <code>"double"</code> if you want to allow only double
+              quotes.</p></td>
             </tr>
 
             <tr>
@@ -695,6 +712,14 @@ World"; // Warning, there is a space after \ (colored pink)</pre>
               <td><p>This option defines globals available when your code is running inside of
               the Rhino runtime environment. <a href="http://www.mozilla.org/rhino/">Rhino</a> is an
               open-source implementation of JavaScript written entirely in Java.</p></td>
+            </tr>
+
+            <tr>
+              <td class="name"><code>worker</code></td>
+              <td><p>This option defines globals available when your code is running inside of
+                a Web Worker. <a href="https://developer.mozilla.org/en/Using_web_workers">Web Workers</a>
+                provide a simple means for web content to run scripts in background threads.</p>
+              </td>
             </tr>
 
             <tr>
