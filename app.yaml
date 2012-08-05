@@ -12,9 +12,9 @@ handlers:
   static_files: about.html
   upload: about.html
 
-- url: /options/
-  static_files: options.html
-  upload: options.html
+- url: /docs/
+  static_files: docs.html
+  upload: docs.html
 
 - url: /platforms/
   static_files: platforms.html
