@@ -61,6 +61,36 @@
 
       <div class="row">
         <div class="span5 columns">
+          <h3>August 5th, 2012</h3>
+        </div>
+
+        <div class="span11 columns">
+          <h2>New release: r09</h2>
+
+          <p class="dedication">This release is dedicated to olympic weightlifters: Zoe Smith (GB),
+          Sarah Robles (USA) and Dmitriy Klokov (RUS).</p>
+
+          <ul>
+            <li>New option: <code>unused</code>. It allows you to quickly spot variables
+            that were defined but never used.
+            <li>Fixes and improvements for our new option <code>quotmark</code> introduced in r08.
+            <li>Rhino wrapper now accepts shortcuts for predefined globals:
+              <code>rhino jshint-rhino.js myfile.js undef:true myglobal</code>. In addition,
+              this wrapper no longer assumes <code>rhino=true</code> for all files it checks.
+            <li>We removed <code>JSHINT.report</code>. (It used to generate HTML based on
+              JSHINT's data)
+            <li><code>camelcase</code> now allows variables with leading underscores since
+              it is one of the most common patters for pseudo-private variables in JavaScript.
+            <li><code>nomen</code> now recognizes Underscore.js global (<code>_</code>).
+            <li>+ bugfixes.
+          </ul>
+
+          <p>Thanks to Rod Vagg and Nikolay Frantsev.</p>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="span5 columns">
           <h3>July 26th, 2012</h3>
         </div>
 

@@ -147,3 +147,9 @@ body.changelog div.page li {
   margin-bottom: 5px;
   color: #444;
 }
+
+body.changelog p.dedication {
+  border: solid 1px #ccc;
+  padding: 5px;
+  margin: 15px 0 25px 0;
+}
