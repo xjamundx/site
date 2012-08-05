@@ -334,6 +334,30 @@ function test() {
             </tr>
 
             <tr>
+              <td class="name"><code>unused</code></td>
+              <td>
+                <p>This option warns when you define and never use your variables. It is very
+                useful for general code cleanup, especially when used in addition to <code>undef</code>.</p>
+
+<pre>/*jshint unused:true */
+
+function test(a, b) {
+  var c, d = 2;
+
+  return a + d;
+}
+
+test(1, 2);
+
+// Line 3: 'b' was defined but never used.
+// Line 4: 'c' was defined but never used.</pre>
+
+                <p>In addition to that, this option will warn you about unused global variables declared
+                via <code>/*global ... */</code>.</p>
+               </td>
+            </tr>
+
+            <tr>
               <td class="name"><code>strict</code></td>
               <td>
                 <p>This option requires all functions to run in EcmaScript 5's strict mode.
