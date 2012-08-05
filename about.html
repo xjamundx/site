@@ -135,65 +135,6 @@
             Tools</a>&mdash;presentation at the GothamJS '11 conference.</li>
             <li><a href="http://www.youtube.com/watch?v=4zgYG-_ha28&feature=player_detailpage#t=54m00s">John Carmack on static code analysis tools</a>&mdash;QuakeCon '11 keynote.</li>
           </ul>
-        </div>
-      </div>
-
-      <div class="row">
-        <div class="span12 columns">
-          <h2>How does it work?</h2>
-
-          <p><code>JSHINT</code> is a global function that takes three formal parameters:</p>
-
-          <pre>var result = JSHINT(source, options, globals);</pre>
-
-          <p>The first parameter is either a string or an array of strings. If it is a string,
-          it will be split on <code>'\n'</code> or <code>'\r'</code>. If it is an array of strings,
-          it is assumed that each string represents one line. The source can be JavaScript or
-          JSON.</p>
-
-          <p>If all of the enabled tests pass, JSHINT returns <code>true</code>. Otherwise, it
-          returns <code>false</code>.</p>
-
-          <p>If false, you can use <code>JSHINT.errors</code> to retrieve the errors or request a
-          complete data structure representing the "lint" by using <code>JSHINT.data()</code>. For
-          more information, read the JSHint source code (it's well documented).</p>
-
-          <p>You can also set options in-file globally or per-function:</p>
-
-          <pre>/*jshint evil:true, boss:true */
-
-function helloWorld() {
-  /*jshint expr:true */
-}</pre>
-
-          <p>In addition to options, you can let JSHint know what global variables it should
-          expect:</p>
-
-          <pre>/*global DISQUS:true, jQuery:false */</pre>
-
-          <p>In the example above, JSHint will allow you to override <code>DISQUS</code>, but
-          complain if you try to override <code>jQuery</code>.</p>
-        </div>
-
-        <div class="span4 columns">
-          <h2>Options</h2>
-
-          <p>JSHint supports many different options that you can use to tune JSHint for your own,
-          unique style of programming. If you are new to JavaScript or simply want a safer option
-          just use the defaults. For any other case, we have <a href="/options/">a special page</a>
-          explaining all the options that we support.</p>
-
-          <h2 class="with-padding">Plugins</h2>
-
-          <p>Thanks to many contributors JSHint there are many plugins for all popular text editors
-          and JavaScript platforms including NodeJS, Rhino and so on. Read more on our
-          <a href="/platforms/">platforms</a> page.</p>
-
-          <h2 class="with-padding">Releases</h2>
-
-          <p>Current stable release (the one used on this site) is
-          <a href="https://github.com/jshint/jshint/zipball/r03">r03</a>.</p>
-        </div>
       </div>
     </div>
 
