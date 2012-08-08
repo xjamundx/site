@@ -25,6 +25,9 @@ func init() {
 
 	http.HandleFunc("/reports/save/", save)
 	http.HandleFunc("/reports/", show)
+  http.HandleFunc("/options/", func(w http.ResponseWriter, r *http.Request) {
+    http.Redirect(w, r, "/docs/", 302)
+  })
 	http.HandleFunc("/", notFound)
 }
 
