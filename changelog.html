@@ -61,6 +61,45 @@
 
       <div class="row">
         <div class="span5 columns">
+          <h3>August 20th, 2012</h3>
+        </div>
+
+        <div class="span11 columns">
+          <h2>New release: r10</h2>
+
+          <ul>
+            <li>Lots of improvements to the <code>unused</code> option introduced in r09. For
+            example it is now smart enough to not to warn about unused variable if that variable
+            is followed by a used one:
+
+<pre>fetch(function (err, msg) {
+  success(msg);
+});</pre>
+
+            We also fixed <code>JSHINT.data().unused</code> to be consistent with
+            <code>option.unused</code>.
+
+            <li>You can now exclude globals. For example, if you want to allow browser globals
+            but disallow <code>event</code> you can do the following:
+
+<pre>/*jshint browser:true */
+/*global -event */</pre>
+
+            <li>JSHint now recognizes <code>(function () {})();</code> as well as
+            <code>(function () {}());</code>
+
+            <li>JSHint can now parse labeled and lonely blocks without failing with tons of
+            false positives.</li>
+
+            <li>+ other bugfixes
+          </ul>
+
+          <p>Thanks to Amir E. Aharoni and Carl Ekerot.</p>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="span5 columns">
           <h3>August 5th, 2012</h3>
         </div>
 
