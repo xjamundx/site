@@ -387,6 +387,85 @@ var str = "Hello \
 World";</pre>
               </td>
             </tr>
+
+            <tr>
+              <td class="name"><code>maxparams<code></td>
+              <td>
+                <p>This option lets you set the max number of formal parameters allowed
+                per function:</p>
+
+<pre>/*jshint maxparams:3 */
+
+function login(request, onSuccess) {
+  // ...
+}
+
+// JSHint: Too many parameters per function (4).
+function logout(request, isManual, whereAmI, onSuccess) {
+  // ...
+}</pre>
+              </td>
+            </tr>
+
+            <tr>
+              <td class="name"><code>maxdepth<code></td>
+              <td>
+                <p>This option lets you control how nested do you want your blocks to be:</p>
+
+<pre>/*jshint maxdepth:2 */
+
+function main(meaning) {
+  var day = true;
+
+  if (meaning === 42) {
+    while (day) {
+      shuffle();
+
+      if (tired) { // JSHint: Blocks are nested too deeply (3).
+        sleep();
+      }
+    }
+  }
+}</pre>
+              </td>
+            </tr>
+
+            <tr>
+              <td class="name"><code>maxstatements<code></td>
+              <td>
+                <p>This option lets you set the max number of statements allowed per function:</p>
+
+<pre>/*jshint maxstatements:4 */
+
+function main() {
+  var i = 0;
+  var j = 0;
+
+  // Function declarations count as one statement. Their bodies
+  // don't get taken into account for the outer function.
+  function inner() {
+    var i2 = 1;
+    var j2 = 1;
+
+    return i2 + j2;
+  }
+
+  j = i + j;
+  return j; // JSHint: Too many statements per function. (5)
+}</pre>
+              </td>
+            </tr>
+
+            <tr>
+              <td class="name"><code>maxcomplexity<code></td>
+              <td>
+                <p>This option lets you control cyclomatic complexity throughout your code. Cyclomatic
+                complexity measures the number of linearly independent paths through a program's
+                source code. Read more about
+                <a href="http://en.wikipedia.org/wiki/Cyclomatic_complexity">cyclomatic complexity on
+                  Wikipedia</a>.</p>
+              </td>
+            </tr>
           </tbody>
         </table>
 

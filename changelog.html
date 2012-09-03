@@ -61,6 +61,63 @@
 
       <div class="row">
         <div class="span5 columns">
+          <h3>September 3rd, 2012</h3>
+        </div>
+
+        <div class="span11 columns">
+          <h2>New release: r11</h2>
+
+          <ul>
+            <li><strong>New checks for excessive code!</strong> You can now use JSHint to check
+            number of parameters per function, nested block depth per function, number of
+            statements per function and function's cyclomatic complexity. More information
+            in our <a href="/docs/">docs</a> or in this brilliant
+            <a href="https://github.com/jshint/jshint/pull/593/">patch</a>.
+
+            <li>Fixed bugs where JSHint couldn't parse <code>Number.NaN</code> and ES5 sparse arrays.
+
+            <li>Fixed bugs where JSHint couldn't parse some confusing regular expressions.
+
+            <li><code>catch</code> blocks now has their own scope so if you define a function
+            within a catch block and try to use it outside of said block—JSHint will warn you about
+            undefined variable. JSHint also warns about cases when the catch scope leaks values
+            into the outer scope in IE:
+
+<pre>var e = 2;
+
+try {
+  throw 'boom';
+} catch (e) {
+  // JSHint: 'e' may get overwritten in IE.
+}
+
+console.log(e + 2); // 'boom2' instead of 4</pre>
+
+            <li>We no longer warn when <code>Object</code> is used as a function. Like <code>Boolean</code>,
+            <code>Number</code> and <code>String</code>, <code>Object</code> can be called as a
+            function which provides scripts with access to ECMAScript's internal <code>ToObject</code>
+            logic.
+
+            <li>We no longer warn when uncapitalized global functions are used as constructors.
+
+            <li>JSHint now recognizes some ES6 globals (<code>Map</code>, <code>Set</code> and
+            <code>WeakMap</code>) and one additional browser global <code>Blob</code>.
+
+            <li>Updated our list of globals for MooTools.
+
+            <li>JSHint can now check code within simple <code>eval</code> strings. For example,
+            JSHint can now spot typos like this one (this practice is still discouraged, though):
+<pre>eval("oops("); // Expected ')' and instead saw ''.</pre>
+
+            <li>+ other minor bugfixes.
+          </ul>
+
+          <p>Thanks to Josh Heidenreich, Rick Waldron, Nikolay Frantsev, shybyte.</p>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="span5 columns">
           <h3>August 20th, 2012</h3>
         </div>
 
