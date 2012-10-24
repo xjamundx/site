@@ -199,14 +199,7 @@ editor: true
 	<a name="report"></a>
 	<div class="report span16">
 		<div class="alert-message block-message error" style="display:none;">
-			<div class="row">
-				<div class="columns span10">
-					<h4>JSHint Report</h4>
-				</div>
-				<div class="columns span5">
-					<button data-action="save" class="btn small">Save this report</button>
-				</div>
-			</div>
+			<h4>JSHint Report</h4>
 
 			<div class="options">
 				<pre></pre>
@@ -221,11 +214,6 @@ editor: true
 		</div>
 	</div>
 </div>
-
-<form style="display:none;" class="save-report" method="post" action="/reports/save/">
-	<textarea name="code"></textarea>
-	<textarea name="data"></textarea>
-</form>
 
 <script>
 	var Editor = CodeMirror.fromTextArea(document.getElementById('editor'), {
