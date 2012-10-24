@@ -6,6 +6,8 @@ $.domReady(function () {
 
   var templates = {
     error: '<a data-line="%(line)s" href="javascript:void(0)">Line %(line)s</a>: ' +
+           '<code>%(code)s</code></p><p>%(msg)s',
+    errorscope: '<a class="goto" data-line="%(line)s" href="javascript:void(0)">Inside \'%(scope)s\' on line %(line)s</a>: ' +
            '<code>%(code)s</code></p><p>%(msg)s'
   };
 
@@ -54,12 +56,21 @@ $.domReady(function () {
 
     errors[0].innerHTML = '';
     for (var i = 0, err; err = report.errors[i]; i++) {
-      errors.append(_('<li><p>' + templates.error + '</p></li>', {
-        line: err.line,
-        code: err.evidence ? escapeHTML(err.evidence) : '',
-        msg:  err.reason
-      }));
-
+      if (err.scope === "(main)") {
+        errors.append(_('<li><p>' + templates.error + '</p></li>', {
+          line: err.line,
+          code: err.evidence ? escapeHTML(err.evidence) : '',
+          msg:  err.reason
+        }));
+      } else {
+        errors.append(_('<li><p>' + templates.errorscope + '</p></li>', {
+          scope: err.scope.value === '.' ? err.scope.right : err.scope.value,
+          line: err.scope.line,
+          code: err.evidence ? escapeHTML(err.evidence) : '',
+          msg:  err.reason
+        }));
+      }
+      
       $('a[data-line="' + err.line + '"]').bind('click', function (ev) {
         var line = $(ev.target).attr('data-line') - 1;
         var str  = Editor.getLine(line);
