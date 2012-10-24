@@ -1,0 +1,17 @@
+---
+layout: blog
+permalink: /blog/
+---
+
+{% for post in site.posts limit:10 %}
+<h2><a href="{{ post.url }}">{{ post.title }}</a>
+	<span class="date">{{ post.date | date: "%d %B %Y" }}</span></h2>
+
+<div class="post">
+	{{ post.content }}
+</div>
+{% endfor %}
+
+<p class="more">
+	More posts available in the <a href="/blog/archive/">archive</a>.
+</p>

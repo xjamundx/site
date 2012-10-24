@@ -1,0 +1,94 @@
+<!doctype html>
+
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<meta name="description" content="A JavaScript Code Quality Tool">
+		<meta name="author" content="Anton Kovalyov">
+
+		{% if page.title %}
+		<title>JSHint - {{ page.title }}</title>
+		{% else %}
+		<title>JSHint, A JavaScript Code Quality Tool</title>
+		{% endif %}
+
+		<link rel="stylesheet"
+			href="http://fonts.googleapis.com/css?family=Droid+Sans:regular,bold|Inconsolata|PT+Sans:400,700">
+		<link rel="stylesheet" href="/src/css/bootstrap.css">
+		<link rel="stylesheet" href="/src/css/jshint.css">
+
+		{% if page.single %}
+		<link rel="stylesheet" href="/src/css/page.css">
+		{% endif %}
+
+		{% if page.editor %}
+		<link rel="stylesheet" href="/src/css/codemirror.css">
+		<link rel="stylesheet" href="/src/css/codemirror-theme.css">
+
+		<script src="/src/js/ender.js"></script>
+		<script src="/src/js/codemirror.js"></script>
+		<script src="/src/js/javascript.js"></script>
+		<script src="/src/js/jshint.js"></script>
+		<script src="/src/js/xoxo.js"></script>
+		{% endif %}
+	</head>
+
+	<body>
+		<div class="topbar-wrapper navigation">
+			<div class="topbar">
+				<div class="fill">
+					<div class="container">
+						<h3><a href="/">JSHint</a></h3>
+
+						<ul>
+							<li><a href="/about/">About</a></li>
+							<li><a href="/docs/">Documentation</a></li>
+							<li><a href="/platforms/">Platforms</a></li>
+							<li><a href="/blog/">Blog</a></li>
+
+							<li>
+								<a href="https://github.com/jshint/jshint/archives/master"
+									target="_blank">Download</a>
+							</li>
+
+							<li>
+								<a href="https://github.com/jshint/jshint/" target="_blank">
+									Source
+								</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		{{ content }}
+
+		<div class="footer">
+			<p><strong>JSHint</strong>, by JSHint Community.</p>
+			<p>Follow us on
+				<a href="http://twitter.com/jshint" target="_blank">Twitter</a> or
+				<a href="https://github.com/jshint" target="_blank">GitHub</a>.
+				Maintained by <a href="http://anton.kovalyov.net/" target="_blank">Anton Kovalyov</a>.
+			</p>
+		</div>
+
+		<script>
+			var _gaq = _gaq || [];
+			_gaq.push(["_setAccount", "UA-126146-15"]);
+			_gaq.push(["_setDomainName", "jshint.com"]);
+			_gaq.push(["_trackPageview"]);
+
+			(function () {
+				var ga = document.createElement("script");
+				ga.type = "text/javascript";
+				ga.async = true;
+				ga.src = "http://www.google-analytics.com/ga.js";
+
+				var st = document.getElementsByTagName("script")[0];
+				st.parentNode.insertBefore(ga, st);
+			})();
+		</script>
+	</body>
+</html>
