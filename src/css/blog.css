@@ -81,3 +81,22 @@ p.more {
 	text-align: center;
 	margin-top: 50px;
 }
+
+.archive {
+	list-style-type: none;
+	margin: 0 0 0 5px;
+	padding: 0;
+}
+
+.archive li {
+	margin-bottom: 10px;
+}
+
+.footer {
+	margin-bottom: 50px;
+}
+
+.footer p {
+	color: #666;
+	margin: 0;
+}
