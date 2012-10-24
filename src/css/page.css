@@ -26,12 +26,6 @@ span.logo {
   font-family: "Droid Sans", Helvetica, Arial, Sans-Serif !important;
 }
 
-.topbar h3 {
-  font-family: "Droid Sans", Helvetica, Arial, Sans-Serif;
-  font-size: 120%;
-  color: #fff;
-}
-
 div.options {
   padding-top: 60px;
 }
@@ -63,7 +57,9 @@ div.footer {
 }
 
 div.page {
-  margin-top: 80px;
+	padding-top: 30px;
+	border-top: solid 1px #ccc;
+  margin-top: 10px;
 }
 
 div.page h2 {

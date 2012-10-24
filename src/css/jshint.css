@@ -18,10 +18,34 @@ pre, code {
   font-size: 10pt;
 }
 
-.topbar h3 {
-  font-family: "Droid Sans", Helvetica, Arial, Sans-Serif;
-  font-size: 120%;
-  color: #fff;
+.header {
+	padding: 15px 0;
+	font-size: 12pt;
+}
+
+.header img {
+	width: 150px;
+	border: 0;
+}
+
+.header ul {
+	display: inline;
+	list-style-type: none;
+	position: relative;
+	bottom: 9px;
+}
+
+.header li {
+	display: inline;
+	margin-right: 10px;
+}
+
+.header a {
+	color: #444;
+}
+
+.header a.logo:hover {
+	text-decoration: none;
 }
 
 h1, h2, h3, h4 {
@@ -50,7 +74,7 @@ span.logo {
 }
 
 .editor {
-  padding: 60px 0 0 0;
+  padding: 20px 0 0 0;
 }
 
 .editorArea > .buttons {
@@ -80,7 +104,7 @@ span.logo {
 }
 
 .editorArea .CodeMirror-scroll {
-  height: 600px;
+  height: 450px;
 }
 
 div.report {
