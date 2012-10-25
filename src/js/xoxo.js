@@ -56,21 +56,21 @@ $.domReady(function () {
 
     errors[0].innerHTML = '';
     for (var i = 0, err; err = report.errors[i]; i++) {
-      if (err.scope === "(main)") {
+      if (!err.scope || err.scope === "(main)") {
         errors.append(_('<li><p>' + templates.error + '</p></li>', {
           line: err.line,
-          code: err.evidence ? escapeHTML(err.evidence) : '',
+          code: err.evidence ? escapeHTML(err.evidence) : '&lt;no code&gt;',
           msg:  err.reason
         }));
       } else {
         errors.append(_('<li><p>' + templates.errorscope + '</p></li>', {
           scope: err.scope.value === '.' ? err.scope.right : err.scope.value,
           line: err.scope.line,
-          code: err.evidence ? escapeHTML(err.evidence) : '',
+          code: err.evidence ? escapeHTML(err.evidence) : '&lt;no code&gt;',
           msg:  err.reason
         }));
       }
-      
+
       $('a[data-line="' + err.line + '"]').bind('click', function (ev) {
         var line = $(ev.target).attr('data-line') - 1;
         var str  = Editor.getLine(line);
