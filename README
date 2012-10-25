@@ -19,3 +19,10 @@ Installation:
 
 		$ ./make.js build # Will prepare and generate production ready version
 		...
+
+Deployment notes:
+
+		RewriteEngine on
+		RewriteBase /
+		RewriteRule ^options docs [R]
+		RewriteRule ^reports/(\d+) http://snippets.jshint.com/reports/$1 [R,L]
