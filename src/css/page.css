@@ -118,6 +118,15 @@ div.page div.options-docs table td ol li {
   margin-bottom: 5px;
 }
 
+div.platforms div.platform {
+  margin-top: 20px;
+}
+
+div.platforms div.platform h4 {
+  margin-bottom: 20px;
+  font-weight: normal;
+}
+
 div.platforms h2 {
   margin-bottom: 50px;
 }

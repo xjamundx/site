@@ -16,34 +16,42 @@ single: true
 		<div class="span13 columns">
 			<p>JSHint supports for Rhino, JavaScriptCore and Windows Script Host out of the box!</p>
 
-			<h4>Rhino</h4>
-			<pre>$ make rhino
+      <div class="platform">
+  			<h4>Rhino</h4>
+  			<pre>$ make rhino
 [...]
 
 $ rhino build/jshint-rhino.js myfile.js</pre>
 
-<p>If you don't want to build the <code>jshint-rhino</code> file yourself, you can download it
-<a href="/downloads/jshint-rhino.js">here</a>.</p>
+        <p>If you don't want to build the <code>jshint-rhino</code> file yourself, you can download it
+        <a href="/downloads/jshint-rhino.js">here</a>.</p>
+      </div>
 
-			<h4>Windows Script Host</h4>
-			<pre>&gt; cscript env/wsh.js myfile.js</pre>
+      <div class="platform">
+  			<h4>Windows Script Host</h4>
+  			<pre>&gt; cscript env/wsh.js myfile.js</pre>
+      </div>
 
-			<h4>JavaScriptCore</h4>
-			<pre>env/jsc.sh myfile.js</pre>
-
-			<h4>Node</h4>
-			<p>For Node we have a special package that you can install via NPM and then use as an
-			ordinary CLI program:</p>
-<pre>$ npm install jshint -g
+      <div class="platform">
+  			<h4>JavaScriptCore</h4>
+  			<pre>env/jsc.sh myfile.js</pre>
+      </div>
+      
+      <div class="platform">
+  			<h4>Node</h4>
+  			<p>For Node we have a special package that you can install via NPM and then use as an
+  			ordinary CLI program:</p>
+        <pre>$ npm install jshint -g
 [...]
 
 $ jshint myfile.js
 Lint free!</pre>
-			<p>The CLI uses the default options that come with JSHint.</p>
-			<p>Only one extra option is unique to the CLI: <code>globals</code> allows you to
-			define an object of globals that get ignored for every file.</p>
-			<p>Configuration options are defined in a file with JSON content. Example:</p>
-<pre>{
+  			<p>The CLI uses the default options that come with JSHint. Only one extra
+          option is unique to the CLI: <code>globals</code> allows you to define an
+          object of globals that get ignored for every file. Configuration options
+          are defined in a file with JSON content. Example:</p>
+
+        <pre>{
     "undef": true,
     "unused": true,
     "globals": {
@@ -51,9 +59,10 @@ Lint free!</pre>
     },
     "browser": true,
 }</pre>
-			<p>You can specify the configuration line with:</p>
-			<pre>$ jshint --config myconfig.js myfile.js</pre>
-			<p>use <code>--help</code> to see other available command line options.</p>
+        <p>You can specify the configuration line with:</p>
+        <pre>$ jshint --config myconfig.json myfile.js</pre>
+        <p>Use <code>--help</code> to see other available command line options.</p>
+      </div>
 		</div>
 	</div>
 
@@ -130,7 +139,7 @@ Lint free!</pre>
 				<p><a href="http://github.eclipsesource.com/jshint-eclipse/">JSHint integration for the Eclipse IDE</a></p>
 			</div>
 
-	<div class="tool">
+	    <div class="tool">
 				<h4>IntelliJ IDEA, RubyMine, PhpStorm, WebStorm, PyCharm</h4>
 
 				<ul>
@@ -148,7 +157,8 @@ Lint free!</pre>
 				<h4>Gedit</h4>
 
 				<p><a href="https://github.com/Kilian/gedit-jshint">JSHint plugin for Gedit</a></p>
-			</div>
+      </div>
+		</div>
 	</div>
 
 	<div class="row">
@@ -189,14 +199,16 @@ Lint free!</pre>
 				<h4><a href="http://jish.github.com/pre-commit/">pre-commit</a></h4>
 
 				<p>pre-commit checks your code for errors before you commit it.</p>
-		</div>
+		  </div>
+
 			<div class="tool">
 				<h4><a href="https://github.com/philmander/ant-jshint">Ant Task</a></h4>
 				<p>Dedicated Ant task to easily automate JSHint in Ant and Maven.</p>
-		 </div>
+      </div>
+
 			<div class="tool">
 				<h4><a href="https://github.com/gyoshev/qhint">QHint - JSHint in QUnit</a></h4>
 				<p>Check for errors in your code from within your unit tests. Lint errors result in failed tests.</p>
-		 </div>
-	</div>
+      </div>
+    </div>
 </div>
