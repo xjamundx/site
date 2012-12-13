@@ -50,16 +50,15 @@ $.domReady(function () {
 
   function listOptions(els, opts) {
     var str = '/*jshint ';
+    var res = [];
 
     for (var name in opts) {
       if (opts.hasOwnProperty(name)) {
-        str += name + ':' + opts[name] + ', ';
+        res.push(name + ':' + opts[name]);
       }
     }
 
-    str = str.slice(0, str.length - 2);
-    str += ' */';
-    els.append(str);
+    els.append("/*jshint " + res.join(", ") + " */");
   }
 
   function gotoErrorLine(ev) {
