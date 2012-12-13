@@ -36,6 +36,17 @@ $.domReady(function () {
     return esc;
   }
 
+  function getUrlHashOpts(opts) {
+    var
+      kvps = location.hash.substring(1).split('&'),
+      i, kvp;
+    for (i = 0; i < kvps.length; i++) {
+      kvp = kvps[i].split('=');
+      opts[kvp[0]] = (kvp[1] === 'true');
+    }
+    return opts;
+  }
+
   function listOptions(els, opts) {
     var str = '/*jshint ';
 
@@ -50,9 +61,16 @@ $.domReady(function () {
     els.append(str);
   }
 
+  function gotoErrorLine(ev) {
+    var line = $(ev.target).attr('data-line') - 1;
+    var str  = Editor.getLine(line);
+
+    Editor.setSelection({ line: line, ch: 0 }, { line: line, ch: str.length });
+    scrollTo(0, 0);
+  }
+
   function reportFailure(report) {
     var errors = $('div.report ul.jshint-errors');
-    var item;
 
     errors[0].innerHTML = '';
     for (var i = 0, err; err = report.errors[i]; i++) {
@@ -71,13 +89,7 @@ $.domReady(function () {
         }));
       }
 
-      $('a[data-line="' + err.line + '"]').bind('click', function (ev) {
-        var line = $(ev.target).attr('data-line') - 1;
-        var str  = Editor.getLine(line);
-
-        Editor.setSelection({ line: line, ch: 0 }, { line: line, ch: str.length });
-        scrollTo(0, 0);
-      });
+      $('a[data-line="' + err.line + '"]').bind('click', gotoErrorLine);
     }
 
     listOptions($('div.report > div.error > div.options pre'), report.options);
@@ -85,7 +97,7 @@ $.domReady(function () {
     $('div.report > div.error').show();
   }
 
-  function reportSuccess(report) {
+  function reportSuccess() {
     $('div.editorArea div.alert-message.success').show();
   }
 
@@ -141,7 +153,8 @@ $.domReady(function () {
   }
 
   var checks = $('ul.inputs-list input[type=checkbox]');
-  var opts   = JSON.parse(localStorage.getItem('opts') || '{}');
+  var opts = JSON.parse(localStorage.getItem('opts') || '{}');
+  opts = getUrlHashOpts(opts);
 
   for (var i = 0, ch; ch = checks[i]; i++) {
     ch = $(ch);
@@ -150,5 +163,7 @@ $.domReady(function () {
     } else if (opts[ch.attr('name')] === false) {
       ch.removeAttr('checked');
     }
+
+    ch.attr('title', ch.attr('name'));
   }
 });
