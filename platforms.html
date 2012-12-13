@@ -14,8 +14,9 @@ single: true
 		</div>
 
 		<div class="span13 columns">
-			<p>JSHint supports for Rhino, JavaScriptCore and Windows Script Host out of the box!
-				For example, to use JSHint with Rhino do this:</p>
+			<p>JSHint supports for Rhino, JavaScriptCore and Windows Script Host out of the box!</p>
+
+			<h4>Rhino</h4>
 			<pre>$ make rhino
 [...]
 
@@ -24,12 +25,13 @@ $ rhino build/jshint-rhino.js myfile.js</pre>
 <p>If you don't want to build the <code>jshint-rhino</code> file yourself, you can download it
 <a href="/downloads/jshint-rhino.js">here</a>.</p>
 
-			<p>Windows Script Host:</p>
+			<h4>Windows Script Host</h4>
 			<pre>&gt; cscript env/wsh.js myfile.js</pre>
 
-			<p>JavaScriptCore:</p>
+			<h4>JavaScriptCore</h4>
 			<pre>env/jsc.sh myfile.js</pre>
 
+			<h4>Node</h4>
 			<p>For Node we have a special package that you can install via NPM and then use as an
 			ordinary CLI program:</p>
 <pre>$ npm install jshint -g
@@ -37,6 +39,21 @@ $ rhino build/jshint-rhino.js myfile.js</pre>
 
 $ jshint myfile.js
 Lint free!</pre>
+			<p>The CLI uses the default options that come with JSHint.</p>
+			<p>Only one extra option is unique to the CLI: <code>globals</code> allows you to
+			define an object of globals that get ignored for every file.</p>
+			<p>Configuration options are defined in a file with JSON content. Example:</p>
+<pre>{
+    "undef": true,
+    "unused": true,
+    "globals": {
+	"MY_GLOBAL": false
+    },
+    "browser": true,
+}</pre>
+			<p>You can specify the configuration line with:</p>
+			<pre>$ jshint --config myconfig.js myfile.js</pre>
+			<p>use <code>--help</code> to see other available command line options.</p>
 		</div>
 	</div>
 
