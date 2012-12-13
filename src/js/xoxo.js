@@ -37,13 +37,14 @@ $.domReady(function () {
   }
 
   function getUrlHashOpts(opts) {
-    var
-      kvps = location.hash.substring(1).split('&'),
-      i, kvp;
-    for (i = 0; i < kvps.length; i++) {
+    var kvps = location.hash.substring(1).split('&');
+    var kvp;
+
+    for (var i = 0; i < kvps.length; i++) {
       kvp = kvps[i].split('=');
       opts[kvp[0]] = (kvp[1] === 'true');
     }
+
     return opts;
   }
 
