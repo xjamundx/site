@@ -135,6 +135,11 @@ div.platforms h4 {
   line-height: 100%;
 }
 
+div.platforms h4 a {
+  color: #444;
+  text-decoration: none;
+}
+
 div.platforms div.tool {
   margin-bottom: 30px;
 }
