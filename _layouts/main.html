@@ -86,5 +86,27 @@
 				st.parentNode.insertBefore(ga, st);
 			})();
 		</script>
+
+    {% if page.editor %}
+
+    <!--[if lte IE 9]><script>window.keenNotSupported = true;
+    </script><![endif]-->
+
+    <script>
+      (function () {
+        if (window.keenNotSupported) {
+          return;
+        }
+
+        var keen = document.createElement("script");
+        keen.type = "text/javascript";
+        keen.async = true;
+        keen.src = "https://keen_web_static.s3.amazonaws.com/code/keen-1.1.0-collection-only.js";
+
+        var st = document.getElementsByTagName("script")[0];
+        st.parentNode.insertBefore(keen, st);
+      })();
+    </script>
+    {% endif %}
 	</body>
 </html>

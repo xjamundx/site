@@ -1,5 +1,44 @@
 /*jshint browser:true, expr:true, boss:true, strict:true, undef:true */
-/*global $:false, Editor:false, JSHINT:false */
+/*global $, Editor, JSHINT, Keen */
+
+var Events = {
+  ready: false,
+  queue: [],
+
+  attemptInit: function () {
+    "use strict";
+
+    if (Events.ready) {
+      return;
+    }
+
+    var ev;
+    if (typeof Keen !== "undefined") {
+      Keen.configure("50e24abc3843312ecb000002", "5ee3b98b9b55482b9b4268c4a7132121");
+      Events.ready = true;
+
+      while (ev = Events.queue.pop()) {
+        Events.add(ev[0], ev[1]);
+      }
+
+      return;
+    }
+
+    setTimeout(Events.attemptInit, 250);
+  },
+
+  add: function (name, data) {
+    "use strict";
+
+    if (!Events.ready) {
+      Events.queue.push([name, data]);
+      Events.attemptInit();
+      return;
+    }
+
+    Keen.addEvent(name, data);
+  }
+};
 
 $.domReady(function () {
   "use strict";
@@ -122,7 +161,21 @@ $.domReady(function () {
     $('div.report > div.alert-message').hide();
     $('div.editorArea div.alert-message').hide();
     $('div.report pre').html('');
-    JSHINT(Editor.getValue(), opts) ? reportSuccess(JSHINT.data()) : reportFailure(JSHINT.data());
+
+    var value = Editor.getValue();
+    var success = JSHINT(value, opts);
+
+    if (success) {
+      reportSuccess(JSHINT.data());
+    } else {
+      reportFailure(JSHINT.data());
+    }
+
+    Events.add("lint", {
+      options: Object.keys(opts),
+      lines: value.split("\n").length,
+      success: success
+    });
   });
 
   $('button[data-action=save]').bind('click', function (ev) {
