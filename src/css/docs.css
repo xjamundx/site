@@ -1,0 +1,78 @@
+html, body {
+  height: 100%;
+  width: 100%;
+  background-color: #E3E9ED;
+  font-size: 11pt;
+}
+
+body {
+  text-align: center;
+}
+
+a {
+  color: #4183C4;
+}
+
+.centered {
+  margin: 0 auto;
+  width: 900px;
+  text-align: left;
+}
+
+.header {
+  margin-top: 25px;
+}
+
+.header ul {
+  display: inline;
+  list-style-type: none;
+}
+
+.header li {
+  display: inline;
+  margin-right: 10px;
+}
+
+.header a {
+  color: #444;
+}
+
+.header .logo img {
+  width: 150px;
+  border: 0;
+}
+
+.header .logo a:hover {
+  text-decoration: none;
+}
+
+.header .menu {
+  padding-top: 40px;
+}
+
+.content {
+  margin-top: 50px;
+}
+
+.content > * {
+  margin-left: 4px; /* I have no idea why I need to do this; CSS sucks */
+}
+
+.content pre {
+  background-color: #F5F5F5;
+  border: solid 1px #D0D0D0;
+  padding: 10px;
+  font-size: 10pt;
+}
+
+.content ul {
+  margin-left: 30px;
+}
+
+.content h3 {
+  margin-top: 50px;
+}
+
+.content h4 {
+  margin-top: 25px;
+}
