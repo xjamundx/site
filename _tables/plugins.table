@@ -29,6 +29,9 @@ TextMate
 [JSLintMate](http://rondevera.github.com/jslintmate/) (supports both JSHint and
 JSLint).
 
+[JSHint.tmbundle](https://github.com/oost/JSHint.tmbundle), a NodeJS port of
+JSLintMate.
+
 --
 
 Visual Studio
