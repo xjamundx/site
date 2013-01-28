@@ -4,7 +4,7 @@ title: Install
 permalink: /install/
 ---
 
-The current stable JSHint release is **1.0.0**.
+{% include current.html %}
 
 <h3 id="download">Download and Install</h3>
 

@@ -10,10 +10,10 @@ Add `-g` to install globally on your system.
 
 Browser bundle
 
-[jshint-1.0.0.js](/get/jshint-1.0.0.js)
+$jshint_bundle$
 
 --
 
 Rhino bundle
 
-[jshint-rhino-1.0.0.js](/get/jshint-rhino-1.0.0.js)
+$jshint_rhino$

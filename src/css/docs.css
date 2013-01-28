@@ -75,6 +75,10 @@ a {
   margin-left: 30px;
 }
 
+.content ul li {
+  margin-bottom: 10px;
+}
+
 .content h3 {
   margin-top: 50px;
 }
