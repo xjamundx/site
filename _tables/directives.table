@@ -1,0 +1,46 @@
+jshint
+
+A directive for setting JSHint options.
+
+    /* jshint strict: true */
+
+--
+
+jslint
+
+A directive for setting JSHint-compatible JSLint options.
+
+    /* jslint vars: true */
+
+--
+
+globals
+
+A directive for telling JSHint about global variables that are defined
+elsewhere. If value is `false` (default), JSHint will consider that variable
+as read-only. Use it together with the `undef` option.
+
+    /* global MY_LIB: false */ 
+
+You can also blacklist certain global variables to make sure they are not used
+anywhere in the current file.
+
+    /* global -BAD_LIB */
+
+--
+
+exported
+
+A directive for telling JSHint about global variables that are defined in the
+current file but used elsewhere. Use it together with the `unused` option.
+
+    /* exported EXPORTED_LIB */
+
+--
+
+members
+
+A directive for telling JSHint about all properties you intend to use. **This
+directive is deprecated.**
+
+--

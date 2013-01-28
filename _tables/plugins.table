@@ -1,0 +1,80 @@
+VIM
+
+[jshint.vim](https://github.com/walm/jshint.vim), VIM plugin and command line
+tool for running JSHint.
+
+--
+
+Emacs
+
+[jshint-mode](https://github.com/daleharvey/jshint-mode), JSHint mode for GNU
+Emacs.
+
+--
+
+Sublime Text 2
+
+[sublime-jshint](https://github.com/uipoet/sublime-jshint), JSHint build package
+for ST2.
+
+[Sublime Linter](https://github.com/Kronuz/SublimeLinter), inline lint
+highlighting for ST2.
+
+--
+
+TextMate
+
+[JSHint TextMate Bundle](http://fgnass.posterous.com/jslint-in-textmate).
+
+[JSLintMate](http://rondevera.github.com/jslintmate/) (supports both JSHint and
+JSLint).
+
+--
+
+Visual Studio
+
+[SharpLinter](https://github.com/jamietre/SharpLinter) (supports both JSLint and
+JSHint).
+
+[JSLint for Visual Studio](http://jslint4vs2010.codeplex.com/) (supports both
+JSLint and JSHint).
+
+
+--
+
+ShiftEdit
+
+[ShiftEdit IDE](http://shiftedit.net/) has built-in support for JSHint.
+
+--
+
+Komodo
+
+[Komodo 7 now ships](http://www.activestate.com/blog/2011/05/komodo-7-alpha-2-improved-syntax-checking)
+with built-in support for JSHint.
+
+--
+
+Eclipse
+
+[JSHint integration for the Eclipse IDE](http://github.eclipsesource.com/jshint-eclipse/)
+
+--
+
+Intellij IDEA and others
+
+[JetBrains IDE family](http://www.jetbrains.com/products.html) supports realtime
+code inspection with both JSHint and JSLint out of the box.
+
+--
+
+Notepad++
+
+[JSLint plugin for Notepad++](http://sourceforge.net/projects/jslintnpp/) now
+supports JSHint.
+
+--
+
+Gedit
+
+[JSHint plugin for Gedit](https://github.com/Kilian/gedit-jshint).

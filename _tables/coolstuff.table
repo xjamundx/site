@@ -1,0 +1,51 @@
+JSHintr
+
+[JSHintr](http://rixth.github.com/jshintr/) is a web tool that allows you to
+set your own code standards, easily review a file against these standards, and
+share the output with other developers.
+
+--
+
+FixMyJS
+
+[FixMyJS](https://github.com/jshint/fixmyjs) is a tool that automatically fixes
+mistakes—such as missing semicolon, multiple definitions, etc.—reported by
+JSHint.
+
+--
+
+Ruby Gem
+
+[A ruby gem for JSHint](https://github.com/rquinlivan/jshint-gem).
+
+[Another ruby gem](https://github.com/stereobooster/jshintrb) but without Java
+dependency.
+
+--
+
+pre-commit
+
+[pre-commit](http://jish.github.com/pre-commit/) checks your code for errors
+before you commit it.
+
+--
+
+Ant Task
+
+[Dedicated Ant task](https://github.com/philmander/ant-jshint) to easily
+automate JSHint in Ant Maven.
+
+--
+
+QHint
+
+[QHint - JSHint in QUnit](https://github.com/gyoshev/qhint). Check for errors in
+your code from within your unit tests. Lint errors result in failed tests.
+
+--
+
+Grunt
+
+[Grunt](http://gruntjs.com), a task-based command line build tool for JavaScript
+projects, supports JSHint out of the box.
+

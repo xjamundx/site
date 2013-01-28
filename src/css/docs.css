@@ -48,6 +48,12 @@ a {
 
 .header .menu {
   padding-top: 40px;
+  text-align: right;
+}
+
+.footer {
+  margin: 100px 0 50px 0;
+  font-size: 90%;
 }
 
 .content {
@@ -75,4 +81,18 @@ a {
 
 .content h4 {
   margin-top: 25px;
+}
+
+.content code {
+  background-color: #FEE9CC;
+}
+
+.content pre code {
+  background-color: transparent;
+}
+
+.content .options .name {
+  width: 150px;
+  text-align: right;
+  font-weight: bold;
 }

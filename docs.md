@@ -4,7 +4,15 @@ title: Documentation
 permalink: /docs/
 ---
 
-### Usage
+### Contents
+
+* [Usage](#usage)
+* [JSHint as a JavaScript library](#jslib)
+* [Configuring JSHint from within JavaScript files](#config)
+* [JSHint options](#options)
+* [Still confused?](#confused)
+
+<h3 id="usage">Usage</h3>
 
 The easiest way to use JSHint is to install it as a Node program. To do so,
 simply run the following command in your terminal (flag -g installs JSHint
@@ -101,7 +109,16 @@ JSHint also has a Rhino build which you can download [here](/todo/).
 Note that Rhino version doesn't support flags described above. It is, actually,
 pretty basic.
 
-### JSHint as a JavaScript library
+#### Ignoring files
+
+If you want JSHint to skip some files you can list them in a file named
+`.jshintignore`. For example:
+
+    legacy.js
+    somelib/**
+    otherlib/*.js
+
+<h3 id="jslib">JSHint as a JavaScript library</h3>
 
 You can also use JSHint in your projects as a JavaScript library. You can either
 install it as a Node module and include with `require` or [download our web
@@ -130,25 +147,89 @@ If your input passes JSHint tests, the function will return `true`. Otherwise,
 it will return `false`. In that case, you can use `JSHINT.errors` to retrieve
 the errors or request a complete report by calling the `JSHINT.data()` method.
 
-### Configuring JSHint from within JavaScript files
+<h3 id="config">Configuring JSHint from within JavaScript files</h3>
 
 In addition to the `--config` flag and `.jshintrc` file you can configure JSHint
-from within your files using special comments. For example, the following
-snippet will enable warnings about undefined and unused variables and tell
-JSHint about a global variable named `MY_GLOBAL`.
+from within your files using special comments. These comments start either
+with `jshint` or `global` and are followed by a comma-separated list of value.
+For example, the following snippet will enable warnings about undefined and
+unused variables and tell JSHint about a global variable named `MY_GLOBAL`.
 
     /* jshint undef: true, unused: true */
     /* global MY_GLOBAL */
     
-These comments are function scoped meaning that if you put them inside a
-function they will affect only this function's code.
+You can use both multi- and single-line comments to configure JSHint. These
+comments are function scoped meaning that if you put them inside a function they
+will affect only this function's code.
 
-### Ignoring files
+#### Directives
 
-If you want JSHint to skip some files you can list them in a file named
-`.jshintignore`. For example:
+{% include directives.html %}
 
-    legacy.js
-    somelib/**
+<h3 id="options">JSHint options</h3>
+
+Most often, when you need to tune JSHint to your own taste, all you need to do
+is to find an appropriate option. Trying to figure out how JSHint options work
+can be confusing and frustrating (and we're working on fixing that!) so please
+read the following couple of paragraphs carefully.
+
+JSHint has two types of options: enforcing and relaxing. The former are used to
+make JSHint more strict while the latter are used to suppress some warnings.
+Take the following code as an example:
+
+    function main(a, b) {
+      return a == null;
+    }
     
-JSHint uses [minimatch](https://github.com/isaacs/minimatch) for glob matching.
+This code will produce the following warning when run without default JSHint
+options:
+
+    line 2, col 14, Use '===' to compare with 'null'.
+    
+Let's say that you know what you're doing and want to disable the produced
+warning but, in the same time, you're curious whether you have any variables
+that were defined but never used. What you need to do, in this case, is to
+enable two options: one relaxing that will suppress the `=== null` warning and
+one enforcing that will enable checks for unused variables. In your case these
+options are `unused` and `eqnull`.
+
+    /*jshint unused:true, eqnull:true */
+    function main(a, b) {
+      return a == null;
+    }
+    
+After that, JSHint will produce the following warning while linting this example
+code:
+
+    demo.js: line 2, col 14, 'main' is defined but never used.
+    demo.js: line 2, col 19, 'b' is defined but never used.
+    
+Exactly what we wanted.
+
+#### Enforcing options
+
+{% include enforcers.html %}
+
+#### Relaxing options
+
+{% include relaxers.html %}
+
+#### Environments
+
+These options pre-define global variables that are exposed by popular JavaScript
+libraries and runtime environments—such as browser or Node. Essentially they are
+shortcuts for explicit declarations like `/*global $:false, jQuery:false */`.
+
+{% include environments.html %}
+
+#### Legacy
+
+These options are legacy from JSLint. Aside from bug fixes they will not be
+improved in any way and might be removed at any point.
+
+{% include legacy.html %}
+
+<h3 id="confused">Still confused?</h3>
+
+If you have any further questions about JSHint, feel free to send them to
+our [mailing list](http://groups.google.com/group/jshint/).

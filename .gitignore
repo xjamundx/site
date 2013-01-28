@@ -1,3 +1,11 @@
 _site
 .DS_Store
 node_modules
+_includes/coolstuff.html
+_includes/directives.html
+_includes/enforcers.html
+_includes/environments.html
+_includes/legacy.html
+_includes/plugins.html
+_includes/relaxers.html
+_includes/stable.html
