@@ -102,7 +102,7 @@ Other configuration flags supported by JSHint:
   
 #### Rhino
 
-JSHint also has a Rhino build which you can download [here](/todo/).
+JSHint also has a Rhino build which you can download [here](/install/).
 
     $ rhino jshint-rhino.js myfile.js
     
@@ -122,7 +122,7 @@ If you want JSHint to skip some files you can list them in a file named
 
 You can also use JSHint in your projects as a JavaScript library. You can either
 install it as a Node module and include with `require` or [download our web
-bundle](/todo/) which exposes a global `JSHINT` function.
+bundle](/install/) which exposes a global `JSHINT` function.
 
     // With Node
     var JSHINT = require("jshint").JSHINT;
