@@ -71,11 +71,11 @@ a {
   font-size: 10pt;
 }
 
-.content ul {
+.content ul, .content ol {
   margin-left: 30px;
 }
 
-.content ul li {
+.content ul li, .content ol li {
   margin-bottom: 10px;
 }
 

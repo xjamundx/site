@@ -204,7 +204,39 @@ code:
     demo.js: line 2, col 14, 'main' is defined but never used.
     demo.js: line 2, col 19, 'b' is defined but never used.
     
-Exactly what we wanted.
+Sometimes JSHint doesn't have an appropriate option that disables some
+particular warning. In this case you can use `jshint` directive to disable
+warnings by their code. Let's say that you have a file that was created by
+combining multiple different files into one:
+
+    "use strict";    
+    /* ... */
+    
+    // From another file
+    function b() {
+      "use strict";
+      /* ... */
+    }
+
+This code will trigger a warning about an unnecessary directive in function `b`.
+JSHint sees that there's already a global "use strict" directive and informs you
+that all other directives are redundant. But you don't want to strip out these
+directives since the file was auto-generated. The solution is to run JSHint
+with a flag `--verbose` and note the warning code (W034 in this case):
+
+    $ jshint --verbose myfile.js
+    myfile.js: line 6, col 3, Unnecessary directive "use strict". (W034)
+
+Then, to hide this warning, just add the following snippet to your file:
+
+    /* jshint -W034 */
+
+A couple things to note:
+
+1. This syntax works only with warnings (code starts with `W`), it doesn't work
+with errors (code starts with `E`).
+2. This syntax will disable all warnings with this code. Some warnings are more
+generic than others so be cautious.
 
 #### Enforcing options
 

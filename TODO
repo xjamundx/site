@@ -1,8 +1,7 @@
 * Pages:
   * Main page
-  * Messages
   * Page about writing your own reporters
 
-* Add links to various downloads (update docs!)
+* Add ./make.js get to copy release files
 * Analytics Events
 * Redirect URLs
