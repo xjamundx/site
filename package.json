@@ -1,0 +1,17 @@
+{
+  "name":     "jshint-site",
+  "version":  "1.0.0",
+  "homepage": "http://jshint.com/",
+
+  "author": {
+    "name":  "Anton Kovalyov",
+    "email": "anton@kovalyov.net",
+    "url":   "http://anton.kovalyov.net/"
+  },
+
+  "dependencies": {
+    "shelljs":    "*",
+    "markdown":   "*",
+    "js-yaml":    "*"
+  }
+}

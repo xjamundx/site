@@ -3,7 +3,10 @@
 "use strict";
 
 require("shelljs/make");
+require("js-yaml");
+
 var markdown = require("markdown").markdown;
+var path = require("path");
 
 function table2html(src) {
   var header = "<table class='options table table-bordered table-striped'>";
@@ -46,14 +49,29 @@ function build() {
 }
 
 target.dev = function () {
+  target.get();
   build();
-	echo("Running Jekyll server on localhost:4000...");
-	exec("jekyll --auto --server");
+  echo("Running Jekyll server on localhost:4000...");
+  exec("jekyll --auto --server");
 };
 
 target.build = function () {
+  target.get();
   build();
-	// Change settings, combine and minify JavaScript/CSS.
-	echo("Generating site...");
-	exec("jekyll");
+  // Change settings, combine and minify JavaScript/CSS.
+  echo("Generating site...");
+  exec("jekyll");
+};
+
+target.get = function () {
+  var config = require("./_config.yml");
+  var jshint_config = require(path.join(config.jshint_dir, "package.json"));
+
+  echo("Copying JSHint dist files to get/");
+  rm("get/*.js");
+  cp(path.join(config.jshint_dir, "dist", "jshint-" + jshint_config.version + ".js"),
+    "./get/");
+  cp(path.join(config.jshint_dir, "dist", "jshint-rhino-" + jshint_config.version + ".js"),
+    "./get/");
+  echo("Done");
 };

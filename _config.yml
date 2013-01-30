@@ -1,3 +1,4 @@
 safe:    true
 baseurl: /
 permalink: /blog/:year-:month-:day/:title
+jshint_dir: ../jshint/
