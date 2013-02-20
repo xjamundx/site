@@ -1,0 +1,78 @@
+.CodeMirror {
+  background-color: #fff;
+  border: solid 1px #ccc;
+  height: 500px;
+  margin-right: 35px; /* I'm bad at CSS */
+  font-size: 90%;
+}
+
+.controls {
+  margin-top: 10px;
+  margin-right: 35px;
+  text-align: right;
+}
+
+.shortdesc {
+  font-size: 90%;
+  margin-right: 35px;
+}
+
+.config {
+  font-size: 90%;
+  margin-bottom: 0;
+  margin-right: 35px;
+  border: solid 1px #ccc;
+  border-bottom: 0;
+  background-color: #f7f7f7;
+  padding: 10px;
+  color: #777;
+}
+
+.config a {
+  color: #777;
+  border-bottom: dashed 1px #777;
+  margin-right: 10px;
+}
+
+.config a:hover {
+  text-decoration: none;
+}
+
+.config a.active {
+  background-color: #fee9cc;
+}
+
+.failure {
+  font-size: 90%;
+  margin-bottom: 0;
+  margin-right: 35px;
+  background-color: #e82530;
+  border: solid 1px #ccc;
+  border-bottom: 0;
+  padding: 10px;
+  color: #fff;
+}
+
+.content {
+  margin-top: 25px;
+}
+
+/* CodeMirror theme */
+.cm-s-default span.cm-keyword {color: #708;}
+.cm-s-default span.cm-atom {color: #219;}
+.cm-s-default span.cm-number {color: #164;}
+.cm-s-default span.cm-def {color: #00f;}
+.cm-s-default span.cm-variable {color: black;}
+.cm-s-default span.cm-variable-2 {color: #05a;}
+.cm-s-default span.cm-variable-3 {color: #0a5;}
+.cm-s-default span.cm-property {color: black;}
+.cm-s-default span.cm-operator {color: black;}
+.cm-s-default span.cm-comment {color: #a50;}
+.cm-s-default span.cm-string {color: #a11;}
+.cm-s-default span.cm-meta {color: #555;}
+.cm-s-default span.cm-error {color: #f00;}
+.cm-s-default span.cm-qualifier {color: #555;}
+.cm-s-default span.cm-builtin {color: #30a;}
+.cm-s-default span.cm-bracket {color: #cc7;}
+.cm-s-default span.cm-tag {color: #170;}
+.cm-s-default span.cm-attribute {color: #00c;}

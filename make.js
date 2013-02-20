@@ -3,7 +3,6 @@
 "use strict";
 
 require("shelljs/make");
-require("js-yaml");
 
 var markdown = require("markdown").markdown;
 var path = require("path");
@@ -64,14 +63,14 @@ target.build = function () {
 };
 
 target.get = function () {
-  var config = require("./_config.yml");
-  var jshint_config = require(path.join(config.jshint_dir, "package.json"));
+  var jshint_dir = "../jshint/";
+  var jshint_config = require(path.join(jshint_dir, "package.json"));
 
   echo("Copying JSHint dist files to get/");
   rm("get/*.js");
-  cp(path.join(config.jshint_dir, "dist", "jshint-" + jshint_config.version + ".js"),
+  cp(path.join(jshint_dir, "dist", "jshint-" + jshint_config.version + ".js"),
     "./get/");
-  cp(path.join(config.jshint_dir, "dist", "jshint-rhino-" + jshint_config.version + ".js"),
+  cp(path.join(jshint_dir, "dist", "jshint-rhino-" + jshint_config.version + ".js"),
     "./get/");
   echo("Done");
 };
