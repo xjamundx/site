@@ -40,7 +40,7 @@ var Events = {
   }
 };
 
-$.domReady(function () {
+(function start() {
   "use strict";
 
   var templates = {
@@ -57,6 +57,9 @@ $.domReady(function () {
   } catch (e) {
     hasStorage = false;
   }
+
+  var $ = document.querySelector.bind(document);
+  var $$ = document.querySelectorAll.bind(document);
 
   function _(string, context) {
     return string.replace(/%\(\w+\)s/g, function (match) {
@@ -87,7 +90,7 @@ $.domReady(function () {
     return opts;
   }
 
-  function listOptions(els, opts) {
+  function listOptions(elt, opts) {
     var str = '/*jshint ';
     var res = [];
 
@@ -97,70 +100,85 @@ $.domReady(function () {
       }
     }
 
-    els.append("/*jshint " + res.join(", ") + " */");
+    elt.innerHTML = "/*jshint " + res.join(", ") + " */";
   }
 
   function gotoErrorLine(ev) {
-    var line = $(ev.target).attr('data-line') - 1;
+    var line = ev.target.getAttribute('data-line') - 1;
     var str  = Editor.getLine(line);
-
     Editor.setSelection({ line: line, ch: 0 }, { line: line, ch: str.length });
     scrollTo(0, 0);
   }
 
-  function reportFailure(report) {
-    var errors = $('div.report ul.jshint-errors');
+  var checks = $$('ul.inputs-list input[type=checkbox]');
+  var lintBtn = $('button[data-action=lint]');
+  var successMessage = $('div.editorArea div.alert-message.success');
+  var errorMessage = $('div.editorArea div.alert-message');
+  var reportBlock = $('#report');
+  var optionsPre = reportBlock.querySelector('#report .options-string pre');
 
-    errors[0].innerHTML = '';
+  function reportFailure(report) {
+    successMessage.style.display = 'none';
+
+    var errors = $('#report ul.jshint-errors');
+    var errorsHTML = '';
+    errors.innerHTML = '';
+
     for (var i = 0, err; err = report.errors[i]; i++) {
       if (!err.scope || err.scope === "(main)") {
-        errors.append(_('<li><p>' + templates.error + '</p></li>', {
+        errorsHTML += _('<li><p>' + templates.error + '</p></li>', {
           line: err.line,
           code: err.evidence ? escapeHTML(err.evidence) : '&lt;no code&gt;',
           msg:  err.reason
-        }));
+        });
       } else {
-        errors.append(_('<li><p>' + templates.errorscope + '</p></li>', {
+        errorsHTML += _('<li><p>' + templates.errorscope + '</p></li>', {
           scope: err.scope.value === '.' ? err.scope.right : err.scope.value,
           line: err.scope.line,
           code: err.evidence ? escapeHTML(err.evidence) : '&lt;no code&gt;',
           msg:  err.reason
-        }));
+        });
       }
-
-      $('a[data-line="' + err.line + '"]').bind('click', gotoErrorLine);
     }
 
-    listOptions($('div.report > div.error > div.options pre'), report.options);
-    $('div.editorArea div.alert-message.error').show();
-    $('div.report > div.error').show();
+    var errorLineButtons = $$('a[data-line]');
+    for (var i=0; i < errorLineButtons.length; i++) {
+      button.addEventListener(errorLineButtons[i], gotoErrorLine, false);
+    }
+
+    errors.innerHTML = errorsHTML;
+    listOptions(optionsPre, report.options);
+
+    errorMessage.style.display = 'block';
+    reportBlock.style.display = 'block';
   }
 
   function reportSuccess() {
-    $('div.editorArea div.alert-message.success').show();
+    errorMessage.style.display = 'none';
+    reportBlock.style.display = 'none';
+    successMessage.style.display = 'block';
   }
 
-  $('button[data-action=lint]').bind('click', function () {
+  function getOpts() {
     var opts   = {};
-    var checks = $('ul.inputs-list input[type=checkbox]');
-
     for (var i = 0, ch; ch = checks[i]; i++) {
-      ch = $(ch);
-
-      if (ch.hasClass('neg')) {
-        if (!ch.attr('checked')) {
-          opts[ch.attr('name')] = true;
+      if (ch.classList.contains('neg')) {
+        if (!ch.checked) {
+          opts[ch.name] = true;
         }
       } else {
-        if (ch.attr('checked')) {
-          opts[ch.attr('name')] = true;
+        if (ch.checked) {
+          opts[ch.name] = true;
         }
       }
     }
+    return opts;
+  }
 
-    $('div.report > div.alert-message').hide();
-    $('div.editorArea div.alert-message').hide();
-    $('div.report pre').html('');
+  lintBtn.addEventListener('click', function () {
+    var opts = getOpts();
+
+    optionsPre.innerHTML = '';
 
     var value = Editor.getValue();
     var success = JSHINT(value, opts);
@@ -176,47 +194,62 @@ $.domReady(function () {
       lines: value.split("\n").length,
       success: success
     });
-  });
+  }, false);
 
-  $('button[data-action=save]').bind('click', function (ev) {
-    var button = $(ev.target);
-    button.html('Saving report...').attr('disabled', true);
+  // saveBtn.addEventListener('click', function (ev) {
+  //   var button = this;
+  //   button.innerHTML = 'Saving report…';
+  //   button.disabled = true;
+  //
+  //   document.querySelector('form.save-report textarea[name=code]').value = Editor.getValue();
+  //
+  //   listOptions($('form.save-report textarea[name=data]'), JSHINT.data().options);
+  //
+  //   document.querySelector('form.save-report').submit();
+  // }, false);
 
-    $('form.save-report textarea[name=code]').val(Editor.getValue());
-    listOptions($('form.save-report textarea[name=data]'), JSHINT.data().options);
-    $('form.save-report')[0].submit();
-  });
-
-  $('ul.inputs-list input[type=checkbox]').bind('change', function () {
-    var checks = $('ul.inputs-list input[type=checkbox]');
+  function saveChecks() {
     var opts   = {};
-
     for (var i = 0, ch; ch = checks[i]; i++) {
-      ch = $(ch);
-      opts[ch.attr('name')] = ch.attr('checked');
+      opts[ch.name] = ch.checked;
     }
-
     if (hasStorage) {
       localStorage.setItem('opts', JSON.stringify(opts));
     }
+  }
+  for (var i=0; i < checks.length; i++) {
+    checks[i].addEventListener('change', saveChecks, false);
+  }
+
+  var textarea = $('#editor');
+  var Editor = CodeMirror.fromTextArea(textarea, {
+    theme: 'default',
+    lineNumbers: true,
+    onChange: function() {
+      if (Editor.getValue() == '') {
+        reportBlock.style.display = 'none';
+        successMessage.style.display = 'none';
+        errorMessage.style.display = 'none';
+      }
+    }
   });
+  Editor.focus();
+  Editor.setSelection({ line: 0, ch: 0 }, { line: 0, ch: textarea.value.length });
+
 
   if (!hasStorage) {
     return;
   }
 
-  var checks = $('ul.inputs-list input[type=checkbox]');
   var opts = JSON.parse(localStorage.getItem('opts') || '{}');
   opts = getUrlHashOpts(opts);
 
   for (var i = 0, ch; ch = checks[i]; i++) {
-    ch = $(ch);
-    if (opts[ch.attr('name')] === true) {
-      ch.attr('checked', true);
-    } else if (opts[ch.attr('name')] === false) {
-      ch.removeAttr('checked');
+    if (opts[ch.name] === true) {
+      ch.checked = true;
+    } else if (opts[ch.name] === false) {
+      ch.checked = false;
     }
-
-    ch.attr('title', ch.attr('name'));
+    ch.title = ch.name;
   }
-});
+})();

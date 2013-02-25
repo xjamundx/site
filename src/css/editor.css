@@ -1,14 +1,13 @@
 .CodeMirror {
+  height: 450px;
+  font-size: 90%;
   background-color: #fff;
   border: solid 1px #ccc;
-  height: 500px;
-  margin-right: 35px; /* I'm bad at CSS */
-  font-size: 90%;
+  border-radius: 4px;
 }
 
 .controls {
   margin-top: 10px;
-  margin-right: 35px;
   text-align: right;
 }
 
@@ -26,6 +25,14 @@
   background-color: #f7f7f7;
   padding: 10px;
   color: #777;
+}
+
+.intro {
+  margin: 40px 10px;
+  font-size: 28px;
+  line-height: 40px;
+  text-align: center;
+  color: #424242;
 }
 
 .config a {
@@ -56,6 +63,61 @@
 .content {
   margin-top: 25px;
 }
+
+.options {
+  padding-top: 30px;
+  margin-bottom: 30px;
+}
+.options:before,
+.options:after { content: " "; display: table; }
+.options:after { clear: both; }
+
+.options > div {
+  float: left;
+  width: 250px;
+}
+.options h3 {
+  margin-top: 0;
+  font-size: 18px;
+}
+.options ul {
+  margin: 0;
+  list-style: none;
+}
+.options > div:first-child {
+  width: 650px;
+}
+.options > div:first-child ul {
+  float: left;
+  width: 50%;
+}
+
+.report {
+  margin-bottom: 18px;
+  padding: 14px;
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
+  color: #404040;
+  background-color: #FDDFDE;
+  background-image: none;
+  border: 1px solid #FBC7C6;
+  border-radius: 4px;
+  box-shadow: none;
+}
+.report h4 {
+  margin: 30px 0 15px;
+}
+.report h4:first-child {
+  margin-top: 15px;
+}
+.report code {
+  color: #333333;
+  background-color: #F5F5F5;
+  border-color: #D0D0D0;
+}
+.report .documentation-link {
+  margin-top: 30px;
+}
+
 
 /* CodeMirror theme */
 .cm-s-default span.cm-keyword {color: #708;}
