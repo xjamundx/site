@@ -195,18 +195,6 @@ var Events = {
     });
   }, false);
 
-  // saveBtn.addEventListener('click', function (ev) {
-  //   var button = this;
-  //   button.innerHTML = 'Saving report\u2026';
-  //   button.disabled = true;
-  //
-  //   document.querySelector('form.save-report textarea[name=code]').value = Editor.getValue();
-  //
-  //   listOptions($('form.save-report textarea[name=data]'), JSHINT.data().options);
-  //
-  //   document.querySelector('form.save-report').submit();
-  // }, false);
-
   function saveChecks() {
     var opts   = {};
     for (var i = 0, ch; ch = checks[i]; i++) {
