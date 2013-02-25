@@ -1,5 +1,5 @@
 /*jshint browser:true, expr:true, boss:true, strict:true, undef:true */
-/*global $, Editor, JSHINT, Keen */
+/*global Editor, JSHINT, Keen, CodeMirror */
 
 var Events = {
   ready: false,
@@ -44,9 +44,9 @@ var Events = {
   "use strict";
 
   var templates = {
-    error: '<a data-line="%(line)s" href="javascript:void(0)">Line %(line)s</a>: ' +
+    error: '<a data-line="%(line)s" role="button">Line %(line)s</a>: ' +
            '<code>%(code)s</code></p><p>%(msg)s',
-    errorscope: '<a class="goto" data-line="%(line)s" href="javascript:void(0)">Inside \'%(scope)s\' on line %(line)s</a>: ' +
+    errorscope: '<a class="goto" data-line="%(line)s" role="button">Inside \'%(scope)s\' on line %(line)s</a>: ' +
            '<code>%(code)s</code></p><p>%(msg)s'
   };
 
@@ -91,7 +91,6 @@ var Events = {
   }
 
   function listOptions(elt, opts) {
-    var str = '/*jshint ';
     var res = [];
 
     for (var name in opts) {
@@ -103,8 +102,8 @@ var Events = {
     elt.innerHTML = "/*jshint " + res.join(", ") + " */";
   }
 
-  function gotoErrorLine(ev) {
-    var line = ev.target.getAttribute('data-line') - 1;
+  function gotoErrorLine() {
+    var line = this.getAttribute('data-line') - 1;
     var str  = Editor.getLine(line);
     Editor.setSelection({ line: line, ch: 0 }, { line: line, ch: str.length });
     scrollTo(0, 0);
@@ -141,13 +140,13 @@ var Events = {
       }
     }
 
-    var errorLineButtons = $$('a[data-line]');
-    for (var i=0; i < errorLineButtons.length; i++) {
-      button.addEventListener(errorLineButtons[i], gotoErrorLine, false);
-    }
-
     errors.innerHTML = errorsHTML;
     listOptions(optionsPre, report.options);
+
+    var errorLineButtons = $$('#report a[data-line]');
+    for (var j=0; j < errorLineButtons.length; j++) {
+      errorLineButtons[j].addEventListener('click', gotoErrorLine, false);
+    }
 
     errorMessage.style.display = 'block';
     reportBlock.style.display = 'block';
@@ -198,7 +197,7 @@ var Events = {
 
   // saveBtn.addEventListener('click', function (ev) {
   //   var button = this;
-  //   button.innerHTML = 'Saving report…';
+  //   button.innerHTML = 'Saving report\u2026';
   //   button.disabled = true;
   //
   //   document.querySelector('form.save-report textarea[name=code]').value = Editor.getValue();
@@ -226,7 +225,7 @@ var Events = {
     theme: 'default',
     lineNumbers: true,
     onChange: function() {
-      if (Editor.getValue() == '') {
+      if (Editor.getValue() === '') {
         reportBlock.style.display = 'none';
         successMessage.style.display = 'none';
         errorMessage.style.display = 'none';
@@ -236,20 +235,20 @@ var Events = {
   Editor.focus();
   Editor.setSelection({ line: 0, ch: 0 }, { line: 0, ch: textarea.value.length });
 
-
-  if (!hasStorage) {
-    return;
-  }
-
-  var opts = JSON.parse(localStorage.getItem('opts') || '{}');
-  opts = getUrlHashOpts(opts);
-
-  for (var i = 0, ch; ch = checks[i]; i++) {
-    if (opts[ch.name] === true) {
-      ch.checked = true;
-    } else if (opts[ch.name] === false) {
-      ch.checked = false;
+  function restoreChecks() {
+    var opts = JSON.parse(localStorage.getItem('opts') || '{}');
+    opts = getUrlHashOpts(opts);
+    for (var i = 0, ch; ch = checks[i]; i++) {
+      if (opts[ch.name] === true) {
+        ch.checked = true;
+      } else if (opts[ch.name] === false) {
+        ch.checked = false;
+      }
+      ch.title = ch.name;
     }
-    ch.title = ch.name;
   }
+  if (hasStorage) {
+    restoreChecks();
+  }
+
 })();
