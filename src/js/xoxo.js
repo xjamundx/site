@@ -111,8 +111,8 @@ var Events = {
 
   var checks = $$('ul.inputs-list input[type=checkbox]');
   var lintBtn = $('button[data-action=lint]');
-  var successMessage = $('div.editorArea div.alert-message.success');
-  var errorMessage = $('div.editorArea div.alert-message');
+  var successMessage = $('div.editorArea div.alert.alert-success');
+  var errorMessage = $('div.editorArea div.alert');
   var reportBlock = $('#report');
   var optionsPre = reportBlock.querySelector('#report .options-string pre');
 

@@ -35,6 +35,10 @@
   color: #424242;
 }
 
+.intro .donate {
+  font-size: 14px;
+}
+
 .config a {
   color: #777;
   border-bottom: dashed 1px #777;

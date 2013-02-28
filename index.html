@@ -2,25 +2,29 @@
 layout: editor
 ---
 
+<a href="https://github.com/jshint/jshint">
+  <img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png" alt="Fork me on GitHub">
+</a>
+
 <div class="intro">
 	<p><span class="logo"><string>JSHint</string></span> is a tool to detect
 	errors and potential problems in JavaScript code and can be used to enforce coding conventions.</p>
+
+  <div class="donate">
+    Like JSHint? <a href="https://www.bountysource.com/#fundraisers/91-jshint">Donate and get an exclusive JSHint shirt!</a>
+  </div>
 </div>
 
 <div class="editor">
 	<div class="editorArea">
 
-		<div class="alert-message error" hidden>
-			<p class="text-error">
-				<span class="logo">JSHint</span> has found potential problems in your code.</span>
-				See <a href="#report">detailed report</a>.
-			</p>
+		<div class="alert alert-error" hidden>
+			<span class="logo">JSHint</span> has found potential problems in your code.</span>
+			See <a href="#report">detailed report</a>.
 		</div>
 
-		<div class="alert-message success" hidden>
-			<p class="text-success">
-				Good job! <span class="logo">JSHint</span> hasn't found any problems with your code.
-			</p>
+		<div class="alert alert-success" hidden>
+			Good job! <span class="logo">JSHint</span> hasn't found any problems with your code.
 		</div>
 
 		<textarea id="editor">// Your code goes here.</textarea>
