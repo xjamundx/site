@@ -50,7 +50,7 @@ undefined and unused variables and tell JSHint about a global variable named
     {
       "undef": true,
       "unused": true,
-      "globals": [ "MY_GLOBAL" ]
+      "globals": { "MY_GLOBAL": false }
     }
 
 Other configuration flags supported by JSHint:
