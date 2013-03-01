@@ -232,7 +232,7 @@ JavaScript:
 
 --
 
-maxparam
+maxparams
 
 This option lets you set the max number of formal parameters allowed per
 function:
