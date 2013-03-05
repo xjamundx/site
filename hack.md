@@ -26,6 +26,16 @@ However, before sending a patch, please make sure that the following applies:
 * All tests and lint checks pass (`node make.js test` and `node make.js lint`).
 * You understand that we're super grateful for your patch.
 
+#### Development Environment
+
+JSHint has a number of dependencies specified in its `package.json` file. To
+install them just run the following command from within your repo directory:
+
+    $ npm install
+
+After that you will be able to run the edge version of JSHint using `bin/jshint`
+or build the release bundles using `node make.js`. 
+
 #### Coding Style
 
 This section describes our coding style guide. You might not agree with it and 
