@@ -42,5 +42,3 @@ members
 
 A directive for telling JSHint about all properties you intend to use. **This
 directive is deprecated.**
-
---
