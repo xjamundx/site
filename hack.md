@@ -23,6 +23,19 @@ However, before sending a patch, please make sure that the following applies:
 * All tests and lint checks pass (`node make.js test` and `node make.js lint`).
 * You understand that we're super grateful for your patch.
 
+#### Bug Bounties
+
+Some bugs are so important to us, we will pay you if you fix them! Go to
+[our page on BountySource](https://www.bountysource.com/#trackers/48759-jshint)
+to see which bugs have bounties behind them.
+
+Really want to have something fixed but don't have time? You can add your
+own bounty to any JSHint bug and make it more attractive for potential
+contributors!
+
+**Rule:** A bug is considered fixed only after it has been merged into the
+master branch of the main JSHint repository.
+
 #### Development Environment
 
 JSHint has a number of dependencies specified in its `package.json` file. To
