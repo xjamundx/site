@@ -20,7 +20,7 @@ However, before sending a patch, please make sure that the following applies:
 * Your patch doesn't have useless merge commits.
 * Your coding style is similar to ours (see below).
 * Your patch is 100% tested. We don't accept any test regressions.
-* All tests and lint checks pass (`node make.js test` and `node make.js lint`).
+* All tests and lint checks pass (`node make.js`).
 * You understand that we're super grateful for your patch.
 
 #### Bug Bounties
@@ -44,7 +44,7 @@ install them just run the following command from within your repo directory:
     $ npm install
 
 After that you will be able to run the edge version of JSHint using `bin/jshint`
-or build the release bundles using `node make.js`. 
+or build the release bundles using `node make.js build`. 
 
 #### Coding Style
 
