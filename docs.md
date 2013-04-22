@@ -181,7 +181,7 @@ Take the following code as an example:
       return a == null;
     }
     
-This code will produce the following warning when run without default JSHint
+This code will produce the following warning when run with default JSHint
 options:
 
     line 2, col 14, Use '===' to compare with 'null'.
