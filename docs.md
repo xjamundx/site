@@ -118,6 +118,24 @@ If you want JSHint to skip some files you can list them in a file named
     somelib/**
     otherlib/*.js
 
+#### Hooking up into the file resolution logic
+
+The CLI JSHint module exposes a public method `gather` that you can use
+to hook up into the file resolution logic. This is useful if you want to
+change how JSHint gathers files for linting. Do this only if you really
+know what you're doing.
+
+    #!/usr/bin/env node
+
+    var cli = require("./src/cli/cli.js");
+
+    cli.gather = function (opts) {
+      // Your own file gathering logic.
+      // For description of 'opts' see src/cli/cli.js:gather
+    };
+
+    cli.interpret(process.argv);
+
 <h3 id="jslib">JSHint as a JavaScript library</h3>
 
 You can also use JSHint in your projects as a JavaScript library. You can either

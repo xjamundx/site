@@ -42,6 +42,15 @@ by Angus Croll.
 
 --
 
+es3
+
+This option tells JSHint that your code needs to adhere to ECMAScript 3
+specification. Use this option if you need your program to be executable
+in older browsers—such as Internet Explorer 6/7/8—and other legacy
+JavaScript environments.
+
+--
+
 forin
 
 This option requires all `for in` loops to filter object's items. The for in

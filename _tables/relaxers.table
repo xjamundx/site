@@ -36,23 +36,11 @@ are often useful when you want to check if a variable is `null` or `undefined`.
 
 --
 
-es5
-
-This option tells JSHint that your code uses ECMAScript 5 specific syntax such
-as getters and setters. Note that not all browsers implement these features.
-
-More info:
-
-1. [ES5 compatibility table](http://kangax.github.com/es5-compat-table/) by Juriy Zaytsev
-2. [ECMAScript 5 support in Mozilla](https://developer.mozilla.org/En/javascript/ECMAScript_5_support_in_Mozilla)
-
---
-
 esnext
 
-This option tells JSHint that your code uses ECMAScript 6 specific features such
-as `const`. Note that these features are not finalized yet and not all browsers
-implement them.
+This option tells JSHint that your code uses ECMAScript 6 specific syntax.
+Note that these features are not finalized yet and not all browsers implement
+them.
 
 More info:
 
@@ -172,6 +160,18 @@ To fix the code above you need to copy the value of `i`:
         };
       }(i));
     }
+
+--
+
+moz
+
+This options tells JSHint that your code uses Mozilla JavaScript
+extensions. Unless you develop specifically for the Firefox web browser
+you don't need this option.
+
+More info:
+
+* [New in JavaScript 1.7](https://developer.mozilla.org/en-US/docs/JavaScript/New_in_JavaScript/1.7)
 
 --
 
