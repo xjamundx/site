@@ -94,7 +94,7 @@ var Events = {
     var res = [];
 
     for (var name in opts) {
-      if (opts.hasOwnProperty(name)) {
+      if (opts.hasOwnProperty(name) && typeof opts[name] !== "function") {
         res.push(name + ':' + opts[name]);
       }
     }
