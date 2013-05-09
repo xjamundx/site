@@ -254,7 +254,24 @@ A couple things to note:
 1. This syntax works only with warnings (code starts with `W`), it doesn't work
 with errors (code starts with `E`).
 2. This syntax will disable all warnings with this code. Some warnings are more
-generic than others so be cautious.
+generic than others so be cautious. 
+
+To re-enable a warning that has been disabled with the above snippet you can
+use:
+
+    /* jshint +W034 */
+
+This is especially useful when you have code which causes a warning but that
+you know is safe in the context. In these cases you can disable the warning as
+above and then re-enable the warning afterwards:
+
+    var y = Object.create(null);
+    // ...
+    /*jshint -W089 */
+    for (var prop in y) {
+        // ...
+    }
+    /*jshint +W089 */
 
 #### Enforcing options
 
