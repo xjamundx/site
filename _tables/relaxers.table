@@ -1,7 +1,7 @@
 asi
 
 This option suppresses warnings about missing semicolons. There is a lot of
-FUD spread about semicolon spreaded by quite a few people in the community. The
+FUD about semicolon spread by quite a few people in the community. The
 common myths are that semicolons are required all the time (they are not) and
 that they are unreliable. JavaScript has rules about semicolons which are
 followed by *all* browsers so it is up to you to decide whether you should or
