@@ -6,7 +6,8 @@ html, body {
 }
 
 body {
-  width: 900px;
+  max-width: 900px;
+  min-width: 320px;
   margin: 0 auto;
   text-align: left;
 }
@@ -45,8 +46,11 @@ a[role=button] {
 
 .header .menu {
   float: right;
+  margin-right: 65px;
   padding-top: 40px;
+  position: relative;
   text-align: right;
+  z-Index: 1;
 }
 
 .header ul {
