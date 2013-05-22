@@ -78,22 +78,18 @@
 
 .options > div {
   float: left;
-  width: 250px;
 }
 .options h3 {
   margin-top: 0;
   font-size: 18px;
 }
 .options ul {
-  margin: 0;
+  margin: 0 5px;
   list-style: none;
-}
-.options > div:first-child {
-  width: 650px;
+  width: 290px;
 }
 .options > div:first-child ul {
   float: left;
-  width: 50%;
 }
 
 .report {
