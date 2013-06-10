@@ -61,6 +61,15 @@ This option defines non-standard but widely adopted globals such as `escape` and
 
 --
 
+phantom
+
+This option defines globals available when your core is running inside
+of the PhantomJS runtime environment. [PhantomJS](http://phantomjs.org/)
+is a headless WebKit scriptable with a JavaScript API. It has fast and native support
+for various web standards: DOM handling, CSS selector, JSON, Canvas, and SVG.
+
+--
+
 prototypejs
 
 This option defines globals exposed by the [Prototype](http://www.prototypejs.org/)
