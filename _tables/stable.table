@@ -3,7 +3,7 @@ Node (with NPM)
 From your command line run the following command:
 
     npm install jshint
-    
+
 Add `-g` to install globally on your system.
 
 --
