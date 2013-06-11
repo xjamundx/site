@@ -40,7 +40,7 @@ function build() {
     table2html(cat(file))
       .to(file.replace(".table", ".html").replace("_tables", "_includes"));
   });
-  
+
   cat("_includes/stable.html")
     .replace("$jshint_bundle$", "<a href='/get/jshint-" + version + ".js'>jshint-" + version + ".js</a>")
     .replace("$jshint_rhino$", "<a href='/get/jshint-rhino-" + version + ".js'>jshint-rhino-" + version + ".js</a>")

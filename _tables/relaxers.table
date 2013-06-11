@@ -7,7 +7,7 @@ that they are unreliable. JavaScript has rules about semicolons which are
 followed by *all* browsers so it is up to you to decide whether you should or
 should not use semicolons in your code.
 
-For more information about semicolons in JavaScript read 
+For more information about semicolons in JavaScript read
 [An Open Letter to JavaScript Leaders Regarding Semicolons](http://blog.izs.me/post/2353458699/an-open-letter-to-javascript-leaders-regarding)
 by Isaac Schlueter and [JavaScript Semicolon Insertion](http://inimino.org/~inimino/blog/javascript_semicolons).
 
@@ -20,7 +20,7 @@ comparisons are expected. More often than not, code like `if (a = 10) {}` is a
 typo. However, it can be useful in cases like this one:
 
     for (var i = 0, person; person = people[i]; i++) {}
-    
+
 You can silence this error on a per-use basis by surrounding the assignment
 with parenthesis, such as:
 
@@ -86,7 +86,7 @@ scope.
       }
 
       x += 1; // Default: 'x' used out of scope.
-    	        // No warning when funcscope:true
+                // No warning when funcscope:true
     }
 
 --
@@ -115,7 +115,7 @@ semicolon is omitted for the last statement in a one-line block:
     var name = (function() { return 'Anton' }());
 
 This is a very niche use case that is useful only when you use automatic
-JavaScript code generators.    
+JavaScript code generators.
 
 --
 
@@ -153,7 +153,7 @@ functions inside of loops can lead to bugs such as this one:
     }
 
     nums[0](2); // Prints 12 instead of 2
-    
+
 To fix the code above you need to copy the value of `i`:
 
     var nums = [];
@@ -161,7 +161,7 @@ To fix the code above you need to copy the value of `i`:
     for (var i = 0; i < 10; i++) {
       (function (i) {
         nums[i] = function (j) {
-        	return i + j;
+            return i + j;
         };
       }(i));
     }
@@ -198,7 +198,7 @@ between the escape character and a whitespace.
     text = "Hello
     World"; // Warning, no escape character.
 
-    text = "Hello\ 
+    text = "Hello\
     World"; // Warning, there is a space after \
 
 --

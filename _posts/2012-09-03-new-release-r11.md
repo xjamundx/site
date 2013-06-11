@@ -15,8 +15,8 @@ Other changes:
 * Fixed bugs where JSHint couldn't parse some confusing regular expressions.
 * `catch` blocks now has their own scope so if you define a function within
   a catch block and try to use it outside of said block—JSHint will warn you
-	about undefined variable. JSHint also warns about cases when the catch
-	scope leaks values into the outer scope in IE:
+    about undefined variable. JSHint also warns about cases when the catch
+    scope leaks values into the outer scope in IE:
 
       var e = 2;
 
@@ -30,7 +30,7 @@ Other changes:
 
 * We no longer warn when Object is used as a function. Like Boolean, Number
   and String, Object can be called as a function which provides scripts with
-	access to ECMAScript's internal ToObject logic.
+    access to ECMAScript's internal ToObject logic.
 * We no longer warn when uncapitalized global functions are used as constructors.
 * JSHint now recognizes some ES6 globals (Map, Set and WeakMap) and one
   additional browser global Blob.

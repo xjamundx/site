@@ -46,16 +46,16 @@ And a real-world example:
         error:  {
           id: '(error)',
           code: 'W117',
-          reason: '\'module\' is not defined.' 
+          reason: '\'module\' is not defined.'
           evidence: 'module.exports = {',
           line: 3,
           character: 1,
           scope: '(main)',
-          
+
           // [...]
         }
       },
-      
+
       // [...]
     ]
 
