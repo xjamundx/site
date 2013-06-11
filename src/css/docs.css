@@ -68,6 +68,13 @@ a[role=button] {
   text-align: center;
 }
 
+.github-logo {
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-Index: 0;
+}
+
 .content {
   margin-top: 50px;
 }
