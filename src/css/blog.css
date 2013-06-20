@@ -10,7 +10,9 @@ img {
 	border: 0;
 }
 
-a, a:hover, a:visited {
+a,
+a:hover,
+a:visited {
 	color: #08c;
 	text-decoration: none;
 }
@@ -45,7 +47,8 @@ a:hover {
 	margin-right: 5px;
 }
 
-p, li {
+p,
+li {
 	font-size: 11pt;
 	line-height: 150%;
 }
@@ -55,7 +58,8 @@ h2 {
 	font-weight: normal;
 }
 
-h2 a, h2 a:visited {
+h2 a,
+h2 a:visited {
 	color: #333;
 }
 
