@@ -120,7 +120,7 @@ a[role=button] {
 }
 
 .btn-primary {
-    color: #ffffff;
+    color: white;
     text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
     background-color: #006699;
     background-image: -moz-linear-gradient(top, #4892da, #006699);
@@ -140,7 +140,7 @@ a[role=button] {
 .btn-primary.active,
 .btn-primary.disabled,
 .btn-primary[disabled] {
-    color: #ffffff;
+    color: white;
     background-color: #006699;
     *background-color: #006699;
 }
