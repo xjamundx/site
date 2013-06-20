@@ -50,7 +50,7 @@ a[role=button] {
   padding-top: 40px;
   position: relative;
   text-align: right;
-  z-Index: 1;
+  z-index: 1;
 }
 
 .header ul {
@@ -72,7 +72,7 @@ a[role=button] {
     position: absolute;
     top: 0;
     right: 0;
-    z-Index: 0;
+    z-index: 0;
 }
 
 .content {
