@@ -51,7 +51,7 @@ target.dev = function () {
   target.get();
   build();
   echo("Running Jekyll server on localhost:4000...");
-  exec("jekyll --auto --server");
+  exec("jekyll serve --watch");
 };
 
 target.build = function () {
@@ -59,7 +59,7 @@ target.build = function () {
   build();
   // Change settings, combine and minify JavaScript/CSS.
   echo("Generating site...");
-  exec("jekyll");
+  exec("jekyll build");
 };
 
 target.get = function () {
