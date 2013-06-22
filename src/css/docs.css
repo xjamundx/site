@@ -40,9 +40,7 @@ a[role=button] {
 
 .header .logo img {
     display: block;
-    width: 150px;
     text-decoration: none;
-    border: 0;
 }
 
 .header .menu {
