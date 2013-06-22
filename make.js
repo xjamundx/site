@@ -66,11 +66,14 @@ target.get = function () {
   var jshint_dir = "../jshint/";
   var jshint_config = require(path.join(jshint_dir, "package.json"));
 
-  echo("Copying JSHint dist files to get/");
+  if (!test("-e", "./get")) {
+    mkdir("./get");
+  }
   rm("get/*.js");
-  cp(path.join(jshint_dir, "dist", "jshint-" + jshint_config.version + ".js"),
-    "./get/");
-  cp(path.join(jshint_dir, "dist", "jshint-rhino-" + jshint_config.version + ".js"),
+  echo("Copying JSHint dist files to get/");
+  cp([
+    path.join(jshint_dir, "dist", "jshint-" + jshint_config.version + ".js"),
+    path.join(jshint_dir, "dist", "jshint-rhino-" + jshint_config.version + ".js")],
     "./get/");
   echo("Done");
 };
