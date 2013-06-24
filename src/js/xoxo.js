@@ -79,12 +79,12 @@ var Events = {
   }
 
   function getUrlHashOpts(opts) {
-    var kvps = location.hash.substring(1).split('&');
+    var kvps = location.hash.substring(1).split("&");
     var kvp;
 
     for (var i = 0; i < kvps.length; i++) {
-      kvp = kvps[i].split('=');
-      opts[kvp[0]] = (kvp[1] === 'true');
+      kvp = kvps[i].split("=");
+      opts[kvp[0]] = (kvp[1] === "true");
     }
 
     return opts;
@@ -95,7 +95,7 @@ var Events = {
 
     for (var name in opts) {
       if (opts.hasOwnProperty(name) && typeof opts[name] !== "function") {
-        res.push(name + ':' + opts[name]);
+        res.push(name + ":" + opts[name]);
       }
     }
 
@@ -103,39 +103,39 @@ var Events = {
   }
 
   function gotoErrorLine() {
-    var line = this.getAttribute('data-line') - 1;
+    var line = this.getAttribute("data-line") - 1;
     var str  = Editor.getLine(line);
     Editor.setSelection({ line: line, ch: 0 }, { line: line, ch: str.length });
     scrollTo(0, 0);
   }
 
-  var checks = $$('ul.inputs-list input[type=checkbox]');
-  var lintBtn = $('button[data-action=lint]');
-  var successMessage = $('div.editorArea div.alert.alert-success');
-  var errorMessage = $('div.editorArea div.alert');
-  var reportBlock = $('#report');
-  var optionsPre = reportBlock.querySelector('#report .options-string pre');
+  var checks = $$("ul.inputs-list input[type=checkbox]");
+  var lintBtn = $("button[data-action=lint]");
+  var successMessage = $("div.editorArea div.alert.alert-success");
+  var errorMessage = $("div.editorArea div.alert");
+  var reportBlock = $("#report");
+  var optionsPre = reportBlock.querySelector("#report .options-string pre");
 
   function reportFailure(report) {
-    successMessage.style.display = 'none';
+    successMessage.style.display = "none";
 
-    var errors = $('#report ul.jshint-errors');
-    var errorsHTML = '';
-    errors.innerHTML = '';
+    var errors = $("#report ul.jshint-errors");
+    var errorsHTML = "";
+    errors.innerHTML = "";
 
     for (var i = 0, err; err = report.errors[i]; i++) {
       if (!err.scope || err.scope === "(main)") {
-        errorsHTML += _('<li><p>' + templates.error + '</p></li>', {
+        errorsHTML += _("<li><p>" + templates.error + "</p></li>", {
           line: err.line,
-          code: err.evidence ? escapeHTML(err.evidence) : '&lt;no code&gt;',
+          code: err.evidence ? escapeHTML(err.evidence) : "&lt;no code&gt;",
           msg:  err.reason
         });
       } else {
-        errorsHTML += _('<li><p>' + templates.errorscope + '</p></li>', {
-          scope: err.scope.value === '.' ? err.scope.right : err.scope.value,
-          line: err.scope.line,
-          code: err.evidence ? escapeHTML(err.evidence) : '&lt;no code&gt;',
-          msg:  err.reason
+        errorsHTML += _("<li><p>" + templates.errorscope + "</p></li>", {
+          scope: err.scope.value === "." ? err.scope.right : err.scope.value,
+          line:  err.scope.line,
+          code:  err.evidence ? escapeHTML(err.evidence) : "&lt;no code&gt;",
+          msg:   err.reason
         });
       }
     }
@@ -143,25 +143,25 @@ var Events = {
     errors.innerHTML = errorsHTML;
     listOptions(optionsPre, report.options);
 
-    var errorLineButtons = $$('#report a[data-line]');
-    for (var j=0; j < errorLineButtons.length; j++) {
-      errorLineButtons[j].addEventListener('click', gotoErrorLine, false);
+    var errorLineButtons = $$("#report a[data-line]");
+    for (var j = 0; j < errorLineButtons.length; j++) {
+      errorLineButtons[j].addEventListener("click", gotoErrorLine, false);
     }
 
-    errorMessage.style.display = 'block';
-    reportBlock.style.display = 'block';
+    errorMessage.style.display = "block";
+    reportBlock.style.display = "block";
   }
 
   function reportSuccess() {
-    errorMessage.style.display = 'none';
-    reportBlock.style.display = 'none';
-    successMessage.style.display = 'block';
+    errorMessage.style.display = "none";
+    reportBlock.style.display = "none";
+    successMessage.style.display = "block";
   }
 
   function getOpts() {
-    var opts   = {};
+    var opts = {};
     for (var i = 0, ch; ch = checks[i]; i++) {
-      if (ch.classList.contains('neg')) {
+      if (ch.classList.contains("neg")) {
         if (!ch.checked) {
           opts[ch.name] = true;
         }
@@ -174,10 +174,10 @@ var Events = {
     return opts;
   }
 
-  lintBtn.addEventListener('click', function () {
+  lintBtn.addEventListener("click", function () {
     var opts = getOpts();
 
-    optionsPre.innerHTML = '';
+    optionsPre.innerHTML = "";
 
     var value = Editor.getValue();
     var success = JSHINT(value, opts);
@@ -196,27 +196,27 @@ var Events = {
   }, false);
 
   function saveChecks() {
-    var opts   = {};
+    var opts = {};
     for (var i = 0, ch; ch = checks[i]; i++) {
       opts[ch.name] = ch.checked;
     }
     if (hasStorage) {
-      localStorage.setItem('opts', JSON.stringify(opts));
+      localStorage.setItem("opts", JSON.stringify(opts));
     }
   }
-  for (var i=0; i < checks.length; i++) {
-    checks[i].addEventListener('change', saveChecks, false);
+  for (var i = 0; i < checks.length; i++) {
+    checks[i].addEventListener("change", saveChecks, false);
   }
 
-  var textarea = $('#editor');
+  var textarea = $("#editor");
   var Editor = CodeMirror.fromTextArea(textarea, {
-    theme: 'default',
+    theme: "default",
     lineNumbers: true,
     onChange: function() {
-      if (Editor.getValue() === '') {
-        reportBlock.style.display = 'none';
-        successMessage.style.display = 'none';
-        errorMessage.style.display = 'none';
+      if (Editor.getValue() === "") {
+        reportBlock.style.display = "none";
+        successMessage.style.display = "none";
+        errorMessage.style.display = "none";
       }
     }
   });
@@ -224,7 +224,7 @@ var Events = {
   Editor.setSelection({ line: 0, ch: 0 }, { line: 0, ch: textarea.value.length });
 
   function restoreChecks() {
-    var opts = JSON.parse(localStorage.getItem('opts') || '{}');
+    var opts = JSON.parse(localStorage.getItem("opts") || "{}");
     opts = getUrlHashOpts(opts);
     for (var i = 0, ch; ch = checks[i]; i++) {
       if (opts[ch.name] === true) {
