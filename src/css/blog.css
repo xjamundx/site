@@ -63,7 +63,7 @@ h2 a:visited {
     color: #333;
 }
 
-span.date {
+.date {
     margin-left: 15px;
     color: #aaa;
     font-size: 90%;
@@ -77,11 +77,13 @@ pre {
     font-size: 10pt;
     background-color: #ffffea;
     border: solid 1px #ccc;
-    border-radius: 3px;
+    -webkit-border-radius: 3px;
+       -moz-border-radius: 3px;
+            border-radius: 3px;
     padding: 5px;
 }
 
-p.more {
+.more {
     text-align: center;
     margin-top: 50px;
 }
