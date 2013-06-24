@@ -3,7 +3,9 @@
     font-size: 90%;
     background-color: white;
     border: solid 1px #ccc;
-    border-radius: 4px;
+    -webkit-border-radius: 4px;
+       -moz-border-radius: 4px;
+            border-radius: 4px;
 }
 
 .controls {
@@ -33,10 +35,6 @@
     line-height: 40px;
     text-align: center;
     color: #424242;
-}
-
-.intro .donate {
-    font-size: 14px;
 }
 
 .config a {
@@ -100,7 +98,9 @@
     background-color: #FDDFDE;
     background-image: none;
     border: 1px solid #FBC7C6;
-    border-radius: 4px;
+    -webkit-border-radius: 4px;
+       -moz-border-radius: 4px;
+            border-radius: 4px;
     box-shadow: none;
 }
 .report h4 {
