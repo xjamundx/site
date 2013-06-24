@@ -21,10 +21,6 @@ a[role=button] {
     cursor: pointer;
 }
 
-*[hidden] {
-    display: none;
-}
-
 .header {
     overflow: hidden;
     margin-top: 25px;
