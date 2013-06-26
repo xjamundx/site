@@ -1,121 +1,121 @@
 .CodeMirror {
-  height: 450px;
-  font-size: 90%;
-  background-color: #fff;
-  border: solid 1px #ccc;
-  border-radius: 4px;
+    height: 450px;
+    font-size: 90%;
+    background-color: white;
+    border: solid 1px #ccc;
+    -webkit-border-radius: 4px;
+       -moz-border-radius: 4px;
+            border-radius: 4px;
 }
 
 .controls {
-  margin-top: 10px;
-  text-align: right;
+    margin-top: 10px;
+    text-align: right;
 }
 
 .shortdesc {
-  font-size: 90%;
-  margin-right: 35px;
+    font-size: 90%;
+    margin-right: 35px;
 }
 
 .config {
-  font-size: 90%;
-  margin-bottom: 0;
-  margin-right: 35px;
-  border: solid 1px #ccc;
-  border-bottom: 0;
-  background-color: #f7f7f7;
-  padding: 10px;
-  color: #777;
+    font-size: 90%;
+    margin-bottom: 0;
+    margin-right: 35px;
+    border: solid 1px #ccc;
+    border-bottom: 0;
+    background-color: #f7f7f7;
+    padding: 10px;
+    color: #777;
 }
 
 .intro {
-  margin: 40px 10px;
-  font-size: 28px;
-  line-height: 40px;
-  text-align: center;
-  color: #424242;
-}
-
-.intro .donate {
-  font-size: 14px;
+    margin: 40px 10px;
+    font-size: 28px;
+    line-height: 40px;
+    text-align: center;
+    color: #424242;
 }
 
 .config a {
-  color: #777;
-  border-bottom: dashed 1px #777;
-  margin-right: 10px;
+    color: #777;
+    border-bottom: dashed 1px #777;
+    margin-right: 10px;
 }
 
 .config a:hover {
-  text-decoration: none;
+    text-decoration: none;
 }
 
 .config a.active {
-  background-color: #fee9cc;
+    background-color: #fee9cc;
 }
 
 .failure {
-  font-size: 90%;
-  margin-bottom: 0;
-  margin-right: 35px;
-  background-color: #e82530;
-  border: solid 1px #ccc;
-  border-bottom: 0;
-  padding: 10px;
-  color: #fff;
+    font-size: 90%;
+    margin-bottom: 0;
+    margin-right: 35px;
+    background-color: #e82530;
+    border: solid 1px #ccc;
+    border-bottom: 0;
+    padding: 10px;
+    color: white;
 }
 
 .content {
-  margin-top: 25px;
+    margin-top: 25px;
 }
 
 .options {
-  padding-top: 30px;
-  margin-bottom: 30px;
+    padding-top: 30px;
+    margin-bottom: 30px;
 }
 .options:before,
 .options:after { content: " "; display: table; }
 .options:after { clear: both; }
 
 .options > div {
-  float: left;
+    float: left;
 }
 .options h3 {
-  margin-top: 0;
-  font-size: 18px;
+    margin-top: 0;
+    font-size: 18px;
 }
 .options ul {
-  margin: 0 5px;
-  list-style: none;
-  width: 290px;
+    margin: 0 5px;
+    list-style: none;
+    width: 290px;
 }
 .options > div:first-child ul {
-  float: left;
+    float: left;
 }
 
 .report {
-  margin-bottom: 18px;
-  padding: 14px;
-  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
-  color: #404040;
-  background-color: #FDDFDE;
-  background-image: none;
-  border: 1px solid #FBC7C6;
-  border-radius: 4px;
-  box-shadow: none;
+    margin-bottom: 18px;
+    padding: 14px;
+    text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
+    color: #404040;
+    background-color: #FDDFDE;
+    background-image: none;
+    border: 1px solid #FBC7C6;
+    -webkit-border-radius: 4px;
+       -moz-border-radius: 4px;
+            border-radius: 4px;
+    box-shadow: none;
 }
 .report h4 {
-  margin: 30px 0 15px;
+    margin: 30px 0 15px;
 }
 .report h4:first-child {
-  margin-top: 15px;
+    margin-top: 15px;
 }
 .report code {
-  color: #333333;
-  background-color: #F5F5F5;
-  border-color: #D0D0D0;
+    color: #333333;
+    background-color: #F5F5F5;
+    border-color: #D0D0D0;
 }
 .report .documentation-link {
-  margin-top: 30px;
+    margin-top: 30px;
 }
 
 

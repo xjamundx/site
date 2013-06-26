@@ -1,17 +1,22 @@
 {
-  "name":     "jshint-site",
-  "version":  "1.0.0",
+  "name": "jshint-site",
+  "version": "1.0.0",
   "homepage": "http://jshint.com/",
-
-  "author": {
-    "name":  "Anton Kovalyov",
-    "email": "anton@kovalyov.net",
-    "url":   "http://anton.kovalyov.net/"
+  "author": "Anton Kovalyov <anton@kovalyov.net> (http://anton.kovalyov.net/)",
+  "description": "All-static website powering jshint.com and jshint.com/blog. Blog\r posts reside in \"_posts\" directory, preferrable markup: Markdown.",
+  "readmeFilename": "README.md",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jshint/site.git"
   },
-
+  "bugs": {
+    "url": "https://github.com/jshint/site/issues"
+  },
+  "main": "make.js",
   "dependencies": {
-    "shelljs":    "*",
-    "markdown":   "*",
-    "js-yaml":    "*"
-  }
+    "shelljs": "*",
+    "markdown": "*",
+    "js-yaml": "*"
+  },
+  "license": "MIT"
 }

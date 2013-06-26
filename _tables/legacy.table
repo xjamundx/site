@@ -18,13 +18,13 @@ readability. Example (taken from JSLint/JSHint source code):
       if (b) {
         indent += option.indent;
         if (nexttoken.from === indent + option.indent) {
-    		  indent += option.indent;
-    	  }
+              indent += option.indent;
+          }
       }
 
       // [...]
     };
-    
+
 --
 
 passfail

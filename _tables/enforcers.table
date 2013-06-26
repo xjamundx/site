@@ -206,9 +206,9 @@ useful for general code cleanup, especially when used in addition to `undef`.
 
     // Line 3: 'b' was defined but never used.
     // Line 4: 'c' was defined but never used.
-    
+
 In addition to that, this option will warn you about unused global variables
-declared via `/*global ... */` directive.    
+declared via `/*global ... */` directive.
 
 This can be set to "vars" to only check for variables, not function parameters,
 or "strict" to check all variables and parameters.  The default (true) behavior
@@ -274,10 +274,10 @@ This option lets you control how nested do you want your blocks to be:
 
       if (meaning === 42) {
         while (day) {
-      	  shuffle();
+          shuffle();
 
           if (tired) { // JSHint: Blocks are nested too deeply (3).
-      		  sleep();
+              sleep();
           }
         }
       }

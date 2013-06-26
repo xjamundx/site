@@ -40,7 +40,7 @@ function build() {
     table2html(cat(file))
       .to(file.replace(".table", ".html").replace("_tables", "_includes"));
   });
-  
+
   cat("_includes/stable.html")
     .replace("$jshint_bundle$", "<a href='/get/jshint-" + version + ".js'>jshint-" + version + ".js</a>")
     .replace("$jshint_rhino$", "<a href='/get/jshint-rhino-" + version + ".js'>jshint-rhino-" + version + ".js</a>")
@@ -51,7 +51,7 @@ target.dev = function () {
   target.get();
   build();
   echo("Running Jekyll server on localhost:4000...");
-  exec("jekyll --auto --server");
+  exec("jekyll serve --watch");
 };
 
 target.build = function () {
@@ -59,18 +59,21 @@ target.build = function () {
   build();
   // Change settings, combine and minify JavaScript/CSS.
   echo("Generating site...");
-  exec("jekyll");
+  exec("jekyll build");
 };
 
 target.get = function () {
   var jshint_dir = "../jshint/";
   var jshint_config = require(path.join(jshint_dir, "package.json"));
 
-  echo("Copying JSHint dist files to get/");
+  if (!test("-e", "./get")) {
+    mkdir("./get");
+  }
   rm("get/*.js");
-  cp(path.join(jshint_dir, "dist", "jshint-" + jshint_config.version + ".js"),
-    "./get/");
-  cp(path.join(jshint_dir, "dist", "jshint-rhino-" + jshint_config.version + ".js"),
+  echo("Copying JSHint dist files to get/");
+  cp([
+    path.join(jshint_dir, "dist", "jshint-" + jshint_config.version + ".js"),
+    path.join(jshint_dir, "dist", "jshint-rhino-" + jshint_config.version + ".js")],
     "./get/");
   echo("Done");
 };

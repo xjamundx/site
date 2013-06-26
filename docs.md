@@ -20,14 +20,14 @@ globally on your system, omit it if you want to install JSHint in the current
 working directory):
 
     $ npm install jshint -g
-    
+
 After you've done that you should be able to use the `jshint` program. The
 simplest use case would be linting a single file or all JavaScript files in
 a directory:
 
     $ jshint myfile.js
     myfile.js: line 10, col 39, Octal literals are not allowed in strict mode.
-    
+
     1 error
 
 JSHint comes with a default set of warnings but it was designed to be very
@@ -60,7 +60,7 @@ Other configuration flags supported by JSHint:
   with your own implementation.
 
       $ jshint --reporter=myreporter.js myfile.js
-  
+
   This flag also supports two pre-defined reporters: *jslint*, to make output
   compatible with JSLint, and *checkstyle*, to make output compatible with
   CheckStyle XML.
@@ -68,12 +68,12 @@ Other configuration flags supported by JSHint:
       $ jshint --reporter=checkstyle myfile.js
       <?xml version="1.0" encoding="utf-8"?>
       <checkstyle version="4.3">
-      	<file name="myfile.js">
+        <file name="myfile.js">
           <error line="10" column="39" severity="error"
             message="Octal literals are not allowed in strict mode."/>
         </file>
       </checkstyle>
-      
+
   See also: [Writing your own JSHint reporter](/docs/reporter/).
 
 * **`--verbose`**
@@ -84,9 +84,9 @@ Other configuration flags supported by JSHint:
 
       $ jshint --show-non-errors myfile.js
       myfile.js: line 10, col 39, Octal literals are not allowed in strict mode.
-    
+
       1 error
-      
+
       myfile.js:
         Unused variables:
           foo, bar
@@ -99,13 +99,13 @@ Other configuration flags supported by JSHint:
 
 * **`--version`**
   Shows the installed version of JSHint.
-  
+
 #### Rhino
 
 JSHint also has a Rhino build which you can download [here](/install/).
 
     $ rhino jshint-rhino.js myfile.js
-    
+
 Note that Rhino version doesn't support flags described above. It is, actually,
 pretty basic.
 
@@ -144,11 +144,11 @@ bundle](/install/) which exposes a global `JSHINT` function.
 
     // With Node
     var JSHINT = require("jshint").JSHINT;
-    
+
 `JSHINT` is a function that takes three formal parameters and returns a boolean:
 
     var success = JSHINT(source, options, globals);
-    
+
 The first parameter is either a string or an array of strings. If it is a
 string, it will be split on '\n' or '\r'. If it is an array of strings, it is
 assumed that each string represents one line. The source can be JavaScript or
@@ -175,7 +175,7 @@ unused variables and tell JSHint about a global variable named `MY_GLOBAL`.
 
     /* jshint undef: true, unused: true */
     /* global MY_GLOBAL */
-    
+
 You can use both multi- and single-line comments to configure JSHint. These
 comments are function scoped meaning that if you put them inside a function they
 will affect only this function's code.
@@ -198,12 +198,12 @@ Take the following code as an example:
     function main(a, b) {
       return a == null;
     }
-    
+
 This code will produce the following warning when run with default JSHint
 options:
 
     line 2, col 14, Use '===' to compare with 'null'.
-    
+
 Let's say that you know what you're doing and want to disable the produced
 warning but, in the same time, you're curious whether you have any variables
 that were defined but never used. What you need to do, in this case, is to
@@ -215,21 +215,21 @@ options are `unused` and `eqnull`.
     function main(a, b) {
       return a == null;
     }
-    
+
 After that, JSHint will produce the following warning while linting this example
 code:
 
     demo.js: line 2, col 14, 'main' is defined but never used.
     demo.js: line 2, col 19, 'b' is defined but never used.
-    
+
 Sometimes JSHint doesn't have an appropriate option that disables some
 particular warning. In this case you can use `jshint` directive to disable
 warnings by their code. Let's say that you have a file that was created by
 combining multiple different files into one:
 
-    "use strict";    
+    "use strict";
     /* ... */
-    
+
     // From another file
     function b() {
       "use strict";
@@ -254,7 +254,7 @@ A couple things to note:
 1. This syntax works only with warnings (code starts with `W`), it doesn't work
 with errors (code starts with `E`).
 2. This syntax will disable all warnings with this code. Some warnings are more
-generic than others so be cautious. 
+generic than others so be cautious.
 
 To re-enable a warning that has been disabled with the above snippet you can
 use:

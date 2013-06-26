@@ -44,11 +44,11 @@ install them just run the following command from within your repo directory:
     $ npm install
 
 After that you will be able to run the edge version of JSHint using `bin/jshint`
-or build the release bundles using `node make.js build`. 
+or build the release bundles using `node make.js build`.
 
 #### Coding Style
 
-This section describes our coding style guide. You might not agree with it and 
+This section describes our coding style guide. You might not agree with it and
 that's fine but if you're going to send us patches treat this guide as a law.
 
 Our main rule is simple:
@@ -103,7 +103,7 @@ Our main rule is simple:
 
 * Use `//` for all comments.
 * Comment everything that is not obvious.
-* If you're adding a new check, write a comment describing why this check is 
+* If you're adding a new check, write a comment describing why this check is
   important and what it checks for.
 
 **Misc:**
