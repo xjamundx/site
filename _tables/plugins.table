@@ -3,6 +3,9 @@ VIM
 [jshint.vim](https://github.com/walm/jshint.vim), VIM plugin and command line
 tool for running JSHint.
 
+[jshint2.vim](https://github.com/Shutnik/jshint2.vim), modern VIM plugin with
+extra features for running JSHint.
+
 [Syntastic](https://github.com/scrooloose/syntastic),
 supports JSHint both older/newer than 1.1.0.
 
