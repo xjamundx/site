@@ -27,7 +27,7 @@ CodeMirror.defineMode("javascript", function(config, parserConfig) {
 
   function nextUntilUnescaped(stream, end) {
     var escaped = false, next;
-    while ((next = stream.next()) !== null) {
+    while ((next = stream.next()) != null) {
       if (next == end && !escaped)
         return false;
       escaped = !escaped && next == "\\";
@@ -117,7 +117,7 @@ CodeMirror.defineMode("javascript", function(config, parserConfig) {
     this.type = type;
     this.prev = prev;
     this.info = info;
-    if (align !== null) this.align = align;
+    if (align != null) this.align = align;
   }
 
   function inScope(state, varname) {
@@ -180,7 +180,7 @@ CodeMirror.defineMode("javascript", function(config, parserConfig) {
   function pushlex(type, info) {
     var result = function() {
       var state = cx.state;
-      state.lexical = new JSLexical(state.indented, cx.stream.column(), type, null, state.lexical, info);
+      state.lexical = new JSLexical(state.indented, cx.stream.column(), type, null, state.lexical, info)
     };
     result.lex = true;
     return result;
