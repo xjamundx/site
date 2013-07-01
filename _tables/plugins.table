@@ -21,7 +21,7 @@ Emacs.
 Sublime Text 2
 
 [Sublime-JSHint Gutter](https://github.com/victorporof/Sublime-JSHint), JSHint
-plugin for graphically displaying lint results for ST2.
+plugin for graphically displaying lint results in ST2 and ST3.
 
 [sublime-jshint](https://github.com/uipoet/sublime-jshint), JSHint build package
 for ST2.
