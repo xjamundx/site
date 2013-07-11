@@ -16,6 +16,9 @@ Emacs
 [jshint-mode](https://github.com/daleharvey/jshint-mode), JSHint mode for GNU
 Emacs.
 
+[Flycheck](https://github.com/lunaryorn/flycheck), on-the-fly syntax checking
+extension for GNU Emacs, built-in JSHint support.
+
 --
 
 Sublime Text 2
