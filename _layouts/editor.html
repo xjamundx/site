@@ -28,5 +28,21 @@
 		{% include footer.html %}
 
 		<script src="/src/js/xoxo.js"></script>
+		<script>
+			var _gaq = _gaq || [];
+			_gaq.push(["_setAccount", "UA-126146-15"]);
+			_gaq.push(["_setDomainName", "jshint.com"]);
+			_gaq.push(["_trackPageview"]);
+
+			(function () {
+				var ga = document.createElement("script");
+				ga.type = "text/javascript";
+				ga.async = true;
+				ga.src = "//www.google-analytics.com/ga.js";
+
+				var st = document.getElementsByTagName("script")[0];
+				st.parentNode.insertBefore(ga, st);
+			})();
+		</script>
 	</body>
 </html>
