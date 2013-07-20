@@ -57,3 +57,9 @@ overcommit
 manager with built-in JSHint linting, distributed as a Ruby gem. [Read
 more](http://causes.github.io/blog/2013/05/30/overcommit-the-opinionated-git-hook-manager/)
 about it.
+
+--
+
+jshint-mojo
+
+[jshint-mojo](https://github.com/cjdev/jshint-mojo), a plugin for Maven.
