@@ -71,7 +71,7 @@ a[role=button] {
 }
 
 .content {
-    margin-top: 50px;
+    margin-top: 10px;
 }
 
 .content pre {
@@ -143,4 +143,41 @@ a[role=button] {
 .btn-primary:active,
 .btn-primary.active {
     background-color: #006699;
+}
+
+.docs-nav {
+    margin-top: 50px;
+    border-left: 0;
+    padding: 0;
+}
+
+.docs-nav > li {
+    border: solid 1px #ccc;
+    border-left: 0;
+}
+
+.docs-nav > li.first {
+    border-left: solid 1px #ccc;
+}
+
+.docs-nav > li.active {
+    border: solid 1px #0088CC;
+    border-left: 0;
+}
+
+.docs-nav > li > a {
+    margin: 0;
+}
+
+.docs-nav > li.active > a {
+    border-radius: 0;
+}
+
+.docs-nav > li > a:hover {
+    text-decoration: underline;
+    background-color: transparent;
+}
+
+.docs-nav > li.active > a:hover {
+    text-decoration: none;
 }
