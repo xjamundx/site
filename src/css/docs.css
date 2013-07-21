@@ -188,3 +188,9 @@ a[role=button] {
 .docs-nav > li.active > a:hover {
     text-decoration: none;
 }
+
+@media all and (max-width: 1060px) {
+  .fork-me {
+    display: none;
+  }
+}
