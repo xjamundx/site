@@ -195,3 +195,17 @@ a[role=button] {
     display: none;
   }
 }
+
+.books li div.thumbnail {
+    background-color: white;
+    padding: 10px;
+}
+
+.books div.img {
+    text-align: center;
+}
+
+.books img {
+    border: solid 1px #ccc;
+    margin-bottom: 10px;
+}
