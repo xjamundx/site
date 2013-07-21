@@ -32,7 +32,7 @@ function build() {
     var match = file.match(/jshint\-(\d\.\d\.\d)\.js/);
     if (match) {
       version = match[1];
-      ("<p>Current stable version is <strong>" + version + "</strong>.</p>").to("_includes/current.html");
+      ("<script src='/get/jshint-" + version + "'></script>").to("_includes/current.html");
     }
   });
 
