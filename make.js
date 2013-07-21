@@ -18,7 +18,7 @@ function table2html(src) {
 
     return [
       "<tr>",
-        "<td class='name' id='" + name + "'>" + name + "</td>",
+        "<td class='name' id='" + name + "'><a href='#" + name + "'>" + name + "</a></td>",
         "<td class='desc'>" + desc + "</td>",
       "</tr>"
     ].join("\n");
