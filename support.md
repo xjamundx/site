@@ -2,6 +2,7 @@
 layout: docs
 title: Support
 permalink: /docs/support/
+type: docs
 ---
 
 **Still confused?** If you have any further questions about JSHint, feel free to send them to

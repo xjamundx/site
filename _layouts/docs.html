@@ -14,6 +14,7 @@
 	<body>
 		{% include header.html %}
 
+		{% if page.type == "docs" %}
 		<ul class="nav nav-pills docs-nav">
 			<li class='first {% if page.permalink == "/docs/" %}active{% endif %}'>
 				<a href="/docs">Usage</a>
@@ -31,8 +32,9 @@
 				<a href="/docs/support">Support</a>
 			</li>
 		</ul>
+		{% endif %}
 
-		<div class="centered content">
+		<div class="{% if page.type != 'docs' %}with-margin{% endif %} centered content">
 			{{ content }}
 		</div>
 

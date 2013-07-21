@@ -2,6 +2,7 @@
 layout: docs
 title: Options
 permalink: /docs/options/
+type: docs
 ---
 
 #### Enforcing options

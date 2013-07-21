@@ -1,5 +1,7 @@
 Node (with NPM)
 
+![NPM version](https://badge.fury.io/js/jshint.png)
+
 From your command line run the following command:
 
     npm install jshint

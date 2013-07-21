@@ -2,6 +2,7 @@
 layout: docs
 title: Configuration
 permalink: /docs/config/
+type: docs
 ---
 
 JSHint comes with a default set of warnings but it was designed to be very

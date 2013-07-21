@@ -7,6 +7,8 @@ permalink: /hack/
 Good news everyone, JSHint is open source! Our source code is hosted on
 [GitHub](http://github.com/jshint/jshint/).
 
+[![Build Status](https://travis-ci.org/jshint/jshint.png?branch=master)](https://travis-ci.org/jshint/jshint)
+
 #### How to contribute
 
 The best way to make sure your issue is addressed is to submit a patch. We

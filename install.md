@@ -4,8 +4,6 @@ title: Install
 permalink: /install/
 ---
 
-{% include current.html %}
-
 <h3 id="download">Download and Install</h3>
 
 {% include stable.html %}
