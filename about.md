@@ -2,6 +2,7 @@
 layout: docs
 title: About
 permalink: /about/
+name: about
 ---
 
 JSHint is a community-driven tool to detect errors and potential problems in

@@ -1,8 +1,9 @@
 ---
 layout: docs
-title: Support
+title: Documentation
+subtitle: Support
 permalink: /docs/support/
-type: docs
+name: docs
 ---
 
 **Still confused?** If you have any further questions about JSHint, feel free to send them to

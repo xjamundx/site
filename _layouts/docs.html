@@ -14,29 +14,38 @@
 	<body>
 		{% include header.html %}
 
-		{% if page.type == "docs" %}
-		<ul class="nav nav-pills docs-nav">
-			<li class='first {% if page.permalink == "/docs/" %}active{% endif %}'>
-				<a href="/docs">Usage</a>
-			</li>
+		{% if page.name == "docs" %}
+			<div class="container-fluid">
+				<div class="row-fluid">
+					<div class="span2">
+						<ul class="nav nav-tabs nav-stacked docs-nav">
+							<li {% if page.permalink == "/docs/" %}class="active"{% endif %}>
+								<a href="/docs">Usage</a>
+							</li>
 
-			<li {% if page.permalink == "/docs/config/" %}class="active"{% endif %}>
-				<a href="/docs/config/">Configuration</a>
-			</li>
+							<li {% if page.permalink == "/docs/config/" %}class="active"{% endif %}>
+								<a href="/docs/config/">Configuration</a>
+							</li>
 
-			<li {% if page.permalink == "/docs/options/" %}class="active"{% endif %}>
-				<a href="/docs/options">Options</a>
-			</li>
+							<li {% if page.permalink == "/docs/options/" %}class="active"{% endif %}>
+								<a href="/docs/options">Options</a>
+							</li>
 
-			<li {% if page.permalink == "/docs/support/" %}class="active"{% endif %}>
-				<a href="/docs/support">Support</a>
-			</li>
-		</ul>
+							<li {% if page.permalink == "/docs/support/" %}class="active"{% endif %}>
+								<a href="/docs/support">Support</a>
+							</li>
+						</ul>
+					</div>
+
+					<div class="span10 content">
+						{{ content }}
+					</div>
+			</div>
+		{% else %}
+			<div class="centered content">
+				{{ content }}
+			</div>
 		{% endif %}
-
-		<div class="{% if page.type != 'docs' %}with-margin{% endif %} centered content">
-			{{ content }}
-		</div>
 
 		{% include footer.html %}
 

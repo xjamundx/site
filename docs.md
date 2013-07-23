@@ -1,8 +1,9 @@
 ---
 layout: docs
 title: Documentation
+subtitle: Usage
 permalink: /docs/
-type: docs
+name: docs
 ---
 
 The easiest way to use JSHint is to install it as a Node program. To do so,

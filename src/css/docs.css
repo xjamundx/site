@@ -21,39 +21,24 @@ a[role=button] {
     cursor: pointer;
 }
 
-.header {
-    overflow: hidden;
-    margin-top: 25px;
+.navbar .container {
+    max-width: 900px;
+    font-size: 90%;
 }
 
-.header a {
-    color: #444;
+.page-header {
+    margin-top: 80px;
+    width: 100%;
+    padding-bottom: 20px;
+    border-bottom: solid 1px #999;
 }
 
-.header .logo {
-    float: left;
+.page-header h1 {
+    width: 500px;
 }
 
-.header .logo img {
-    display: block;
-    text-decoration: none;
-}
-
-.header .menu {
-    float: right;
-    padding-top: 40px;
-    position: relative;
-    text-align: right;
-    z-index: 1;
-}
-
-.header ul {
-    list-style: none;
-}
-
-.header li {
-    float: left;
-    margin-right: 10px;
+.page-header h1 img {
+    margin-top: -14px;
 }
 
 .footer {
@@ -61,21 +46,6 @@ a[role=button] {
     font-size: 90%;
     text-align: center;
     color: #888;
-}
-
-.github-logo {
-    position: absolute;
-    top: 0;
-    right: 0;
-    z-index: 0;
-}
-
-.content {
-    margin-top: 10px;
-}
-
-.with-margin {
-    margin-top: 50px;
 }
 
 .content pre {
@@ -153,47 +123,8 @@ a[role=button] {
     background-color: #006699;
 }
 
-.docs-nav {
-    margin-top: 50px;
-    border-left: 0;
-    padding: 0;
-}
-
-.docs-nav > li {
-    border: solid 1px #ccc;
-    border-left: 0;
-}
-
-.docs-nav > li.first {
-    border-left: solid 1px #ccc;
-}
-
-.docs-nav > li.active {
-    border: solid 1px #0088CC;
-    border-left: 0;
-}
-
-.docs-nav > li > a {
-    margin: 0;
-}
-
-.docs-nav > li.active > a {
-    border-radius: 0;
-}
-
-.docs-nav > li > a:hover {
-    text-decoration: underline;
-    background-color: transparent;
-}
-
-.docs-nav > li.active > a:hover {
-    text-decoration: none;
-}
-
-@media all and (max-width: 1060px) {
-  .fork-me {
-    display: none;
-  }
+.docs-nav li.active a {
+    background-color: #F5F5F5;
 }
 
 .books li div.thumbnail {

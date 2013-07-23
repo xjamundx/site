@@ -1,10 +1,9 @@
 ---
 layout: docs
-title: Install
+title: Download and install
 permalink: /install/
+name: install
 ---
-
-<h3 id="download">Download and Install</h3>
 
 {% include stable.html %}
 

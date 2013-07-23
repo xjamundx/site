@@ -2,6 +2,7 @@
 layout: docs
 title: Writing your own JSHint reporter
 permalink: /docs/reporter/
+name: docs
 ---
 
 ### Writing your own JSHint reporter

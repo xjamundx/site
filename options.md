@@ -1,19 +1,20 @@
 ---
 layout: docs
-title: Options
+title: Documentation
+subtitle: Options
 permalink: /docs/options/
-type: docs
+name: docs
 ---
 
-#### Enforcing options
+**Enforcing options**
 
 {% include enforcers.html %}
 
-#### Relaxing options
+**Relaxing options**
 
 {% include relaxers.html %}
 
-#### Environments
+**Environments**
 
 These options pre-define global variables that are exposed by popular JavaScript
 libraries and runtime environments—such as browser or Node. Essentially they are
@@ -21,7 +22,7 @@ shortcuts for explicit declarations like `/*global $:false, jQuery:false */`.
 
 {% include environments.html %}
 
-#### Legacy
+**Legacy**
 
 These options are legacy from JSLint. Aside from bug fixes they will not be
 improved in any way and might be removed at any point.

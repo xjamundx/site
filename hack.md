@@ -2,6 +2,7 @@
 layout: docs
 title: Hack
 permalink: /hack/
+name: hack
 ---
 
 Good news everyone, JSHint is open source! Our source code is hosted on
