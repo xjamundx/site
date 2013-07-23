@@ -141,6 +141,41 @@ a[role=button] {
     margin-bottom: 10px;
 }
 
+.blog h4 {
+    font-size: 120%;
+    line-height: 100%;
+    margin-top: 0;
+    margin-bottom: 20px;
+}
+
+.blog h4 .date {
+    font-weight: normal;
+    color: #9999A3;
+}
+
+.blog .post {
+    border-bottom: solid 1px #ccc;
+    margin-bottom: 25px;
+    padding-bottom: 25px;
+}
+
+.blog .post h4 {
+    margin-top: 25px;
+}
+
+ul.archive {
+    margin-left: 0;
+}
+
+ul.archive li {
+    list-style-type: none;
+}
+
+ul.archive li span.date {
+    color: #9999A3;
+    margin-left: 10px;
+}
+
 /* hmm?
 .carbonad {
     background: transparent !important;

@@ -1,6 +1,8 @@
 ---
-layout: blog
-title: "New release: r11"
+layout: docs
+title: Blog
+subtitle: "New release: r11"
+name: post
 ---
 
 This release adds **new checks for excessive code**! You can now use JSHint

@@ -1,11 +1,14 @@
 ---
-layout: blog
+layout: docs
+title: Blog
+subtitle: Archive
 permalink: /blog/archive/
+name: archive
 ---
 
 <ul class="archive">
 	{% for post in site.posts %}
-	<li><a href="{{ post.url }}">{{ post.title }}</a>
-		({{ post.date | date: "%d %B %Y" }})</li>
+	<li><a href="{{ post.url }}">{{ post.subtitle }}</a>
+		<span class="date">{{ post.date | date: "%d %B %Y" }}</span></li>
 	{% endfor %}
 </ul>

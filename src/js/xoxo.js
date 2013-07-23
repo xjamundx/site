@@ -114,9 +114,11 @@ var Events = {
   var successMessage = $("div.editorArea div.alert.alert-success");
   var errorMessage = $("div.editorArea div.alert");
   var reportBlock = $("#report");
+  var pitch = $("#jshint-pitch");  
   var optionsPre = reportBlock.querySelector("#report .options-string pre");
 
   function reportFailure(report) {
+    pitch.style.display = "none";
     successMessage.style.display = "none";
 
     var errors = $("#report ul.jshint-errors");
@@ -153,6 +155,7 @@ var Events = {
   }
 
   function reportSuccess() {
+    pitch.style.display = "none";
     errorMessage.style.display = "none";
     reportBlock.style.display = "none";
     successMessage.style.display = "block";
@@ -174,6 +177,7 @@ var Events = {
     return opts;
   }
 
+  console.log("sup");
   lintBtn.addEventListener("click", function () {
     var opts = getOpts();
 

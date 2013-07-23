@@ -41,8 +41,31 @@
 						{{ content }}
 					</div>
 			</div>
+		{% elsif page.name == "blog" or page.name == "archive" or page.name == "post" %}
+			<div class="container-fluid">
+				<div class="row-fluid">
+					<div class="span2">
+						<ul class="nav nav-tabs nav-stacked docs-nav">
+							<li {% if page.name == "blog" %}class="active"{% endif %}><a href="/blog/">Recent Posts</a></li>
+							<li {% if page.name == "archive" %}class="active"{% endif %}><a href="/blog/archive/">Archive</a></li>
+							<li><a href="https://twitter.com/jshint">Twitter</a></li>
+							<li><a href="https://github.com/jshint/jshint/issues/">Bugs</a></li>
+						</ul>
+					</div>
+
+					<div class="span10 content">
+						<div class="blog">
+							{% if page.name == "post" %}
+								<h4><span class="date">{{ page.date | date: "%d %B %Y" }}</span></h4>
+							{% endif %}
+
+							{{ content }}
+						</div>
+					</div>
+				</div>
+			</div>
 		{% else %}
-			<div class="centered content">
+			<div class="centered content">			
 				{{ content }}
 			</div>
 		{% endif %}
