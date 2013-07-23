@@ -45,7 +45,7 @@ a[role=button] {
     padding: 70px 0 30px 0;
     font-size: 90%;
     text-align: center;
-    color: #888;
+    background-color: E3E9ED;
 }
 
 .content pre {
