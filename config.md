@@ -70,6 +70,13 @@ Other configuration flags supported by JSHint:
 * **`--extra-ext`**
   Allows you to specify additional file extensions to check (default is .js).
 
+* **`--exclude`**
+  Allows you to specify directories which you DON'T want to be linted.
+
+* **`--prereq`**
+  Allows you to specify prerequisite files i.e. files which include definitions
+  of global variables used throughout your project.
+
 * **`--help`**
   Shows a nice little help message similar to what you're reading right now.
 

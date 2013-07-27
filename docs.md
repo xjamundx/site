@@ -22,6 +22,8 @@ a directory:
 
     1 error
 
+If a file path is a dash (`-`) then JSHint will read from standard input.
+
 #### Rhino
 
 JSHint also has a Rhino build which you can download [here](/install/).

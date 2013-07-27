@@ -163,6 +163,16 @@ a[role=button] {
     margin-top: 25px;
 }
 
+.blog .changelog td {
+    border: solid 1px #ccc;
+    padding: 10px;
+    background-color: white;
+}
+
+.blog p.thx {
+    margin-top: 15px;
+}
+
 ul.archive {
     margin-left: 0;
 }
