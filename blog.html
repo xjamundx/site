@@ -9,12 +9,14 @@ name: blog
 
 
 {% for post in site.posts limit:10 %}
+{% unless post.draft %}
 <h4><a href="{{ post.url }}">{{ post.subtitle }}</a>
 	<span class="date">{{ post.date | date: "%d %B %Y" }}</span></h4>
 
 <div class="post">
 	{{ post.content }}
 </div>
+{% endunless %}
 {% endfor %}
 
 <p class="more">
