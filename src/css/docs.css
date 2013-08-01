@@ -210,3 +210,7 @@ hr {
     border-top: solid 1px #999;
     border-bottom: solid 1px #F5F5F5;
 }
+
+.twitter-tweet {
+    margin: 20px auto !important;
+}
