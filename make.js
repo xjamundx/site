@@ -29,7 +29,7 @@ function build() {
   var version;
 
   ls("get/*.js").forEach(function (file) {
-    var match = file.match(/jshint\-(\d\.\d\.\d)\.js/);
+    var match = file.match(/jshint\-(\d+\.\d+\.\d+)\.js/);
     if (match) {
       version = match[1];
       ("<script src='/get/jshint-" + version + ".js'></script>").to("_includes/current.html");
