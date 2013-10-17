@@ -86,17 +86,18 @@ Other configuration flags supported by JSHint:
 ### Inline configuration
 
 In addition to the `--config` flag and `.jshintrc` file you can configure JSHint
-from within your files using special comments. These comments start either
-with `jshint` or `global` and are followed by a comma-separated list of value.
-For example, the following snippet will enable warnings about undefined and
-unused variables and tell JSHint about a global variable named `MY_GLOBAL`.
+from within your files using special comments. These comments must be in the block
+style and start either with `jshint` or `global` and are followed by a comma-separated
+list of values. For example, the following snippet will enable warnings about
+undefined and unused variables and tell JSHint about 2 global variables named
+`MY_GLOBAL` and `MY_OTHER_GLOBAL`.
 
     /* jshint undef: true, unused: true */
-    /* global MY_GLOBAL */
+    /* global MY_GLOBAL, MY_OTHER_GLOBAL */
 
-You can use both multi- and single-line comments to configure JSHint. These
-comments are function scoped meaning that if you put them inside a function they
-will affect only this function's code.
+Comments to configure JSHint must use the block style `/* .. */` instead of the inline `//`
+style. These comments are function scoped meaning that if you put them inside a function
+they will affect only this function's code.
 
 #### Directives
 
